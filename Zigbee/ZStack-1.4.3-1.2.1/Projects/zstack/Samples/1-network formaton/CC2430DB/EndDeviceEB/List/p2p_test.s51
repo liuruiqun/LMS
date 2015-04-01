@@ -1,0 +1,2241 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR 8051 C/C++ Compiler V7.30B/W32                   04/May/2011  07:58:41 /
+// Copyright 2004-2007 IAR Systems. All rights reserved.                      /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data                                              /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\P /
+//                          rojects\zstack\Samples\network                    /
+//                          formaton\Source\p2p_test.c                        /
+//    Command line       =  -f "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2 /
+//                          .1\Projects\zstack\Samples\network                /
+//                          formaton\CC2430DB\..\..\..\Tools\CC2430DB\f8wEnde /
+//                          v.cfg" (-DCPU32MHZ -DFORCE_MAC_NEAR               /
+//                          -DROOT=__near_func -DMAC_OPT_FFD=0 -DBLINK_LEDS   /
+//                          "-DCONST=const __code" -DGENERIC=__generic) -f    /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\CC2430DB\..\..\..\Tools\CC2430DB\f8wConf /
+//                          ig.cfg" (-DSECURE=0 -DDEFAULT_CHANLIST=0x00001000 /
+//                           -DZDAPP_CONFIG_PAN_ID=0xFFFF                     /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=10 -DAPSC_MAX_FRAME_RETRIES=3  /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=20          /
+//                          -DNWK_MAX_BINDING_ENTRIES=10                      /
+//                          -DMAX_BINDING_CLUSTER_IDS=5                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DRFD_RCVC_ALWAYS_ON=FALSE     /
+//                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100           /
+//                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440  /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\Source\p2p_test.c" -D CC2430EB -D        /
+//                          NWK_AUTO_POLL -D REFLECTOR -D ZTOOL_P1 -D         /
+//                          MT_TASK -D MT_ZDO -D xLCD_SUPPORTED=DEBUG -D      /
+//                          xPOWER_SAVING -lC "F:\WSN实验\Texas               /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\EndDeviceEB\List\ /
+//                          " -lA "F:\WSN实验\Texas                           /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\EndDeviceEB\List\ /
+//                          " --diag_suppress Pe001,Pa010 --diag_remark       /
+//                          pe550 -o "F:\WSN实验\Texas                        /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\EndDeviceEB\Obj\" /
+//                           -e --require_prototypes -z9 --no_code_motion     /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data --nr_virtual_regs 8 -I     /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\CC2430DB\" -I "F:\WSN实验\Texas          /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\SOURCE\" -I    /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\CC2430DB\..\..\..\ZMAIN\TI2430DB\" -I    /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MT\"  /
+//                          -I "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2 /
+//                          .1\Projects\zstack\Samples\network                /
+//                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\HAL\I /
+//                          NCLUDE\" -I "F:\WSN实验\Texas                     /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\HAL\TARGET\CC2430EB\" -I                 /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\OSAL\ /
+//                          MCU\CCSOC\" -I "F:\WSN实验\Texas                  /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\OSAL\INCLUDE\" -I "F:\WSN实验\Texas      /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\STACK\AF\" -I "F:\WSN实验\Texas          /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\STACK\NWK\" -I "F:\WSN实验\Texas         /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\STACK\SEC\" -I "F:\WSN实验\Texas         /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\STACK\SYS\" -I "F:\WSN实验\Texas         /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\STACK\ZDO\" -I "F:\WSN实验\Texas         /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\ZMAC\F8W\" -I "F:\WSN实验\Texas          /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\ZMAC\" -I "F:\WSN实验\Texas              /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\SERVICES\SADDR\" -I "F:\WSN实验\Texas    /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\SERVICES\SDATA\" -I "F:\WSN实验\Texas    /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\MAC\INCLUDE\" -I "F:\WSN实验\Texas       /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\MAC\HIGH_LEVEL\" -I "F:\WSN实验\Texas    /
+//                          Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Sa /
+//                          mples\network formaton\CC2430DB\..\..\..\..\..\CO /
+//                          MPONENTS\MAC\LOW_LEVEL\SRF03\" -I                 /
+//                          "F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\ /
+//                          Projects\zstack\Samples\network                   /
+//                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MAC\L /
+//                          OW_LEVEL\SRF03\SINGLE_CHIP\" -I "D:\Program       /
+//                          Files position\IAR Systems\8051\INC\" -I          /
+//                          "D:\Program Files position\IAR                    /
+//                          Systems\8051\INC\CLIB\"                           /
+//    List file          =  F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\P /
+//                          rojects\zstack\Samples\network                    /
+//                          formaton\CC2430DB\EndDeviceEB\List\p2p_test.s51   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME p2p_test
+
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ??p2p_test_MessageMSGCB?relay
+        EXTERN ??p2p_test_ProcessZDOMsgs?relay
+        EXTERN ??p2p_test_SendTheMessage?relay
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_ONE
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?UC_SWITCH_SPARSE
+        EXTERN ?US_SWITCH_DENSE
+        EXTERN ?US_SWITCH_SPARSE
+        EXTERN ?V0
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??p2p_test_HandleKeys?relay
+        FUNCTION ??p2p_test_HandleKeys?relay,0203H
+        PUBLIC ??p2p_test_Init?relay
+        FUNCTION ??p2p_test_Init?relay,0203H
+        PUBLIC ??p2p_test_MessageMSGCB?relay
+        FUNCTION ??p2p_test_MessageMSGCB?relay,0203H
+        PUBLIC ??p2p_test_ProcessEvent?relay
+        FUNCTION ??p2p_test_ProcessEvent?relay,0203H
+        PUBLIC ??p2p_test_ProcessZDOMsgs?relay
+        FUNCTION ??p2p_test_ProcessZDOMsgs?relay,0203H
+        PUBLIC ??p2p_test_SendTheMessage?relay
+        FUNCTION ??p2p_test_SendTheMessage?relay,0203H
+        PUBLIC fatheraddr
+        PUBLIC p2p_msg
+        PUBLIC p2p_test_ClusterList
+        PUBLIC p2p_test_DstAddr
+        PUBLIC p2p_test_HandleKeys
+        FUNCTION p2p_test_HandleKeys,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 28, STACK
+        PUBLIC p2p_test_Init
+        FUNCTION p2p_test_Init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC p2p_test_MessageMSGCB
+        FUNCTION p2p_test_MessageMSGCB,0a1203H
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC p2p_test_NwkState
+        PUBLIC p2p_test_ProcessEvent
+        FUNCTION p2p_test_ProcessEvent,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC p2p_test_ProcessZDOMsgs
+        FUNCTION p2p_test_ProcessZDOMsgs,0a1203H
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC p2p_test_SendTheMessage
+        FUNCTION p2p_test_SendTheMessage,021203H
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 19, STACK
+        PUBLIC p2p_test_SimpleDesc
+        PUBLIC p2p_test_TaskID
+        PUBLIC p2p_test_TransID
+        PUBLIC p2p_test_epDesc
+        PUBLIC shortaddr
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP DATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+afRegister          SYMBOL "afRegister"
+RegisterForKeys     SYMBOL "RegisterForKeys"
+ZDO_RegisterForZDOMsg SYMBOL "ZDO_RegisterForZDOMsg"
+osal_msg_receive    SYMBOL "osal_msg_receive"
+osal_start_timerEx  SYMBOL "osal_start_timerEx"
+osal_msg_deallocate SYMBOL "osal_msg_deallocate"
+NLME_GetShortAddr   SYMBOL "NLME_GetShortAddr"
+NLME_GetCoordShortAddr SYMBOL "NLME_GetCoordShortAddr"
+NLME_GetExtAddr     SYMBOL "NLME_GetExtAddr"
+HalLedSet           SYMBOL "HalLedSet"
+ZDO_ParseEPListRsp  SYMBOL "ZDO_ParseEPListRsp"
+osal_mem_free       SYMBOL "osal_mem_free"
+ZDP_EndDeviceBindReq SYMBOL "ZDP_EndDeviceBindReq"
+ZDP_MatchDescReq    SYMBOL "ZDP_MatchDescReq"
+HalUARTWrite        SYMBOL "HalUARTWrite"
+AF_DataRequest      SYMBOL "AF_DataRequest"
+??AF_DataRequest?relay SYMBOL "?relay", AF_DataRequest
+??HalLedSet?relay   SYMBOL "?relay", HalLedSet
+??HalUARTWrite?relay SYMBOL "?relay", HalUARTWrite
+??NLME_GetCoordShortAddr?relay SYMBOL "?relay", NLME_GetCoordShortAddr
+??NLME_GetExtAddr?relay SYMBOL "?relay", NLME_GetExtAddr
+??NLME_GetShortAddr?relay SYMBOL "?relay", NLME_GetShortAddr
+??RegisterForKeys?relay SYMBOL "?relay", RegisterForKeys
+??ZDO_ParseEPListRsp?relay SYMBOL "?relay", ZDO_ParseEPListRsp
+??ZDO_RegisterForZDOMsg?relay SYMBOL "?relay", ZDO_RegisterForZDOMsg
+??ZDP_EndDeviceBindReq?relay SYMBOL "?relay", ZDP_EndDeviceBindReq
+??ZDP_MatchDescReq?relay SYMBOL "?relay", ZDP_MatchDescReq
+??afRegister?relay  SYMBOL "?relay", afRegister
+??osal_mem_free?relay SYMBOL "?relay", osal_mem_free
+??osal_msg_deallocate?relay SYMBOL "?relay", osal_msg_deallocate
+??osal_msg_receive?relay SYMBOL "?relay", osal_msg_receive
+??osal_start_timerEx?relay SYMBOL "?relay", osal_start_timerEx
+p2p_test_HandleKeys SYMBOL "p2p_test_HandleKeys"
+??p2p_test_HandleKeys?relay SYMBOL "?relay", p2p_test_HandleKeys
+p2p_test_Init       SYMBOL "p2p_test_Init"
+??p2p_test_Init?relay SYMBOL "?relay", p2p_test_Init
+p2p_test_MessageMSGCB SYMBOL "p2p_test_MessageMSGCB"
+??p2p_test_MessageMSGCB?relay SYMBOL "?relay", p2p_test_MessageMSGCB
+p2p_test_ProcessEvent SYMBOL "p2p_test_ProcessEvent"
+??p2p_test_ProcessEvent?relay SYMBOL "?relay", p2p_test_ProcessEvent
+p2p_test_ProcessZDOMsgs SYMBOL "p2p_test_ProcessZDOMsgs"
+??p2p_test_ProcessZDOMsgs?relay SYMBOL "?relay", p2p_test_ProcessZDOMsgs
+p2p_test_SendTheMessage SYMBOL "p2p_test_SendTheMessage"
+??p2p_test_SendTheMessage?relay SYMBOL "?relay", p2p_test_SendTheMessage
+
+        EXTERN afRegister
+        FUNCTION afRegister,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN RegisterForKeys
+        FUNCTION RegisterForKeys,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDO_RegisterForZDOMsg
+        FUNCTION ZDO_RegisterForZDOMsg,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_receive
+        FUNCTION osal_msg_receive,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_start_timerEx
+        FUNCTION osal_start_timerEx,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_deallocate
+        FUNCTION osal_msg_deallocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_GetShortAddr
+        FUNCTION NLME_GetShortAddr,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_GetCoordShortAddr
+        FUNCTION NLME_GetCoordShortAddr,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_GetExtAddr
+        FUNCTION NLME_GetExtAddr,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalLedSet
+        FUNCTION HalLedSet,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDO_ParseEPListRsp
+        FUNCTION ZDO_ParseEPListRsp,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_mem_free
+        FUNCTION osal_mem_free,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDP_EndDeviceBindReq
+        FUNCTION ZDP_EndDeviceBindReq,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDP_MatchDescReq
+        FUNCTION ZDP_MatchDescReq,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 27, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalUARTWrite
+        FUNCTION HalUARTWrite,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN AF_DataRequest
+        FUNCTION AF_DataRequest,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??AF_DataRequest?relay
+        FUNCTION ??AF_DataRequest?relay,00H
+        EXTERN ??HalLedSet?relay
+        FUNCTION ??HalLedSet?relay,00H
+        EXTERN ??HalUARTWrite?relay
+        FUNCTION ??HalUARTWrite?relay,00H
+        EXTERN ??NLME_GetCoordShortAddr?relay
+        FUNCTION ??NLME_GetCoordShortAddr?relay,00H
+        EXTERN ??NLME_GetExtAddr?relay
+        FUNCTION ??NLME_GetExtAddr?relay,00H
+        EXTERN ??NLME_GetShortAddr?relay
+        FUNCTION ??NLME_GetShortAddr?relay,00H
+        EXTERN ??RegisterForKeys?relay
+        FUNCTION ??RegisterForKeys?relay,00H
+        EXTERN ??ZDO_ParseEPListRsp?relay
+        FUNCTION ??ZDO_ParseEPListRsp?relay,00H
+        EXTERN ??ZDO_RegisterForZDOMsg?relay
+        FUNCTION ??ZDO_RegisterForZDOMsg?relay,00H
+        EXTERN ??ZDP_EndDeviceBindReq?relay
+        FUNCTION ??ZDP_EndDeviceBindReq?relay,00H
+        EXTERN ??ZDP_MatchDescReq?relay
+        FUNCTION ??ZDP_MatchDescReq?relay,00H
+        EXTERN ??afRegister?relay
+        FUNCTION ??afRegister?relay,00H
+        EXTERN ??osal_mem_free?relay
+        FUNCTION ??osal_mem_free?relay,00H
+        EXTERN ??osal_msg_deallocate?relay
+        FUNCTION ??osal_msg_deallocate?relay,00H
+        EXTERN ??osal_msg_receive?relay
+        FUNCTION ??osal_msg_receive?relay,00H
+        EXTERN ??osal_start_timerEx?relay
+        FUNCTION ??osal_start_timerEx?relay,00H
+
+// F:\WSN实验\Texas Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Samples\network formaton\Source\p2p_test.c
+//    1 /**************************************************************************************************
+//    2   Filename:       p2p_test.c
+//    3   Revised:        $Date: 2007-10-27 17:16:54 -0700 (Sat, 27 Oct 2007) $
+//    4   Revision:       $Revision: 15793 $
+//    5 
+//    6   Description:    Generic Application (no Profile).
+//    7 
+//    8 
+//    9   Copyright 2004-2007 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED 揂S IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*********************************************************************
+//   41   This application isn't intended to do anything useful, it is
+//   42   intended to be a simple example of an application's structure.
+//   43 
+//   44   This application sends "Hello World" to another "Generic"
+//   45   application every 15 seconds.  The application will also
+//   46   receive "Hello World" packets.
+//   47 
+//   48   The "Hello World" messages are sent/received as MSG type message.
+//   49 
+//   50   This applications doesn't have a profile, so it handles everything
+//   51   directly - itself.
+//   52 
+//   53   Key control:
+//   54     SW1:
+//   55     SW2:  initiates end device binding
+//   56     SW3:
+//   57     SW4:  initiates a match description request
+//   58 *********************************************************************/
+//   59 
+//   60 /*********************************************************************
+//   61  * INCLUDES
+//   62  */
+//   63 #include "OSAL.h"
+//   64 #include "AF.h"
+//   65 #include "ZDApp.h"
+//   66 #include "ZDObject.h"
+//   67 #include "ZDProfile.h"
+//   68 
+//   69 #include "p2p_test.h"
+//   70 #include "DebugTrace.h"
+//   71 
+//   72 #if !defined( WIN32 )
+//   73   #include "OnBoard.h"
+//   74 #endif
+//   75 
+//   76 /* HAL */
+//   77 #include "hal_lcd.h"
+//   78 #include "hal_led.h"
+//   79 #include "hal_key.h"
+//   80 #include "hal_uart.h"
+//   81 //#include "Hal_Sensor.h"  
+//   82 #include "Hal_defs.h"
+//   83 #include "hal_adc.h"
+//   84 /*********************************************************************
+//   85  * MACROS
+//   86  */
+//   87  #define DATA P1_1
+//   88 
+//   89 #define SCK P1_0
+//   90 
+//   91 /*********************************************************************
+//   92  * CONSTANTS
+//   93  */
+//   94 #define CLKSPD_1  (CLKCON & 0x01)
+//   95 
+//   96 
+//   97 // This list should be filled with Application specific Cluster IDs.
+//   98 /*********************************************************************
+//   99  * TYPEDEFS
+//  100  */
+//  101 
+//  102 /*********************************************************************
+//  103  * GLOBAL VARIABLES
+//  104  */
+//  105 
+//  106 // This list should be filled with Application specific Cluster IDs.
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+        DATA
+//  107 const cId_t p2p_test_ClusterList[p2p_test_MAX_CLUSTERS] =
+p2p_test_ClusterList:
+        DS 4
+        REQUIRE `?<Initializer for p2p_test_ClusterList>`
+        REQUIRE __INIT_XDATA_I
+//  108 {
+//  109   p2p_test_CLUSTERID,
+//  110   //fire_extinguisher_clusterId
+//  111 };
+//  112 
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+        DATA
+//  113 const SimpleDescriptionFormat_t p2p_test_SimpleDesc =
+p2p_test_SimpleDesc:
+        DS 12
+        REQUIRE `?<Initializer for p2p_test_SimpleDesc>`
+        REQUIRE __INIT_XDATA_I
+//  114 {
+//  115   p2p_test_ENDPOINT,              //  int Endpoint;
+//  116   p2p_test_PROFID,                //  uint16 AppProfId[2];
+//  117   p2p_test_DEVICEID,              //  uint16 AppDeviceId[2];
+//  118   p2p_test_DEVICE_VERSION,        //  int   AppDevVer:4;
+//  119   p2p_test_FLAGS,                 //  int   AppFlags:4;
+//  120   p2p_test_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+//  121   (cId_t *)p2p_test_ClusterList,  //  byte *pAppInClusterList;
+//  122   p2p_test_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+//  123   (cId_t *)p2p_test_ClusterList   //  byte *pAppInClusterList;
+//  124 };
+//  125 
+//  126 // This is the Endpoint/Interface description.  It is defined here, but
+//  127 // filled-in in p2p_test_Init().  Another way to go would be to fill
+//  128 // in the structure here and make it a "const" (in code space).  The
+//  129 // way it's defined in this sample app it is define in RAM.
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  130 endPointDesc_t p2p_test_epDesc;
+p2p_test_epDesc:
+        DS 6
+        REQUIRE __INIT_XDATA_Z
+//  131 
+//  132 /*********************************************************************
+//  133  * EXTERNAL VARIABLES
+//  134  */
+//  135 
+//  136 /*********************************************************************
+//  137  * EXTERNAL FUNCTIONS
+//  138  */
+//  139 
+//  140 /*********************************************************************
+//  141  * LOCAL VARIABLES
+//  142  */
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  143 byte p2p_test_TaskID;   // Task ID for internal task/event processing
+p2p_test_TaskID:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  144                           // This variable will be received when
+//  145                           // p2p_test_Init() is called.
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  146 devStates_t p2p_test_NwkState;
+p2p_test_NwkState:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  147 
+//  148 
+//  149 byte p2p_test_TransID;  // This is the unique message ID (counter)
+//  150 
+//  151 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  152 byte p2p_test_TransID;  // This is the unique message ID (counter)
+p2p_test_TransID:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  153 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  154 afAddrType_t p2p_test_DstAddr;
+p2p_test_DstAddr:
+        DS 4
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  155   uint8 p2p_msg[6];//the collect message
+p2p_msg:
+        DS 6
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  156  uint16 shortaddr;
+shortaddr:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+//  157  uint16 fatheraddr;
+fatheraddr:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//  158 
+//  159 /*********************************************************************
+//  160  * LOCAL FUNCTIONS
+//  161  */
+//  162 void p2p_test_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
+//  163 void p2p_test_HandleKeys( byte shift, byte keys );
+//  164 void p2p_test_MessageMSGCB( afIncomingMSGPacket_t *pckt );
+//  165 void p2p_test_SendTheMessage( void );
+//  166 
+//  167 /*********************************************************************
+//  168  * NETWORK LAYER CALLBACKS
+//  169  */
+//  170 
+//  171 /*********************************************************************
+//  172  * PUBLIC FUNCTIONS
+//  173  */
+//  174 
+//  175 /*********************************************************************
+//  176  * @fn      p2p_test_Init
+//  177  *
+//  178  * @brief   Initialization function for the Generic App Task.
+//  179  *          This is called during initialization and should contain
+//  180  *          any application specific initialization (ie. hardware
+//  181  *          initialization/setup, table initialization, power up
+//  182  *          notificaiton ... ).
+//  183  *
+//  184  * @param   task_id - the ID assigned by OSAL.  This ID should be
+//  185  *                    used to send messages and set timers.
+//  186  *
+//  187  * @return  none
+//  188  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  189 void p2p_test_Init( byte task_id )
+p2p_test_Init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function p2p_test_Init
+//  190 {
+        FUNCALL p2p_test_Init, afRegister
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_Init, RegisterForKeys
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_Init, ZDO_RegisterForZDOMsg
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_Init, ZDO_RegisterForZDOMsg
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  191   p2p_test_TaskID = task_id;
+        MOV     A,R1
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    @DPTR,A
+//  192   p2p_test_NwkState = DEV_INIT;
+        MOV     A,#0x1
+        MOV     DPTR,#p2p_test_NwkState
+        MOVX    @DPTR,A
+//  193   p2p_test_TransID = 0;
+        CLR     A
+        MOV     DPTR,#p2p_test_TransID
+        MOVX    @DPTR,A
+//  194 
+//  195   // Device hardware initialization can be added here or in main() (Zmain.c).
+//  196   // If the hardware is application specific - add it here.
+//  197   // If the hardware is other parts of the device add it in main().
+//  198 
+//  199   p2p_test_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+        MOV     A,#0x2
+        MOV     DPTR,#(p2p_test_DstAddr + 2)
+        MOVX    @DPTR,A
+//  200   p2p_test_DstAddr.endPoint = p2p_test_ENDPOINT;
+        MOV     A,#0xa
+        MOV     DPTR,#(p2p_test_DstAddr + 3)
+        MOVX    @DPTR,A
+//  201   p2p_test_DstAddr.addr.shortAddr = 0x0000;
+        MOV     DPTR,#p2p_test_DstAddr
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  202 
+//  203   // Fill out the endpoint description.
+//  204   p2p_test_epDesc.endPoint = p2p_test_ENDPOINT;
+        MOV     A,#0xa
+        MOV     DPTR,#p2p_test_epDesc
+        MOVX    @DPTR,A
+//  205   p2p_test_epDesc.task_id = &p2p_test_TaskID;
+        MOV     DPTR,#(p2p_test_epDesc + 1)
+        MOV     A,#(p2p_test_TaskID & 0xff)
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#((p2p_test_TaskID >> 8) & 0xff)
+        MOVX    @DPTR,A
+//  206   p2p_test_epDesc.simpleDesc
+//  207             = (SimpleDescriptionFormat_t *)&p2p_test_SimpleDesc;
+        MOV     DPTR,#(p2p_test_epDesc + 3)
+        MOV     A,#(p2p_test_SimpleDesc & 0xff)
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#((p2p_test_SimpleDesc >> 8) & 0xff)
+        MOVX    @DPTR,A
+//  208   p2p_test_epDesc.latencyReq = noLatencyReqs;
+        CLR     A
+        MOV     DPTR,#(p2p_test_epDesc + 5)
+        MOVX    @DPTR,A
+//  209 
+//  210   // Register the endpoint description with the AF
+//  211   afRegister( &p2p_test_epDesc );
+        ; Setup parameters for call to function afRegister
+        MOV     R2,#(p2p_test_epDesc & 0xff)
+        MOV     R3,#((p2p_test_epDesc >> 8) & 0xff)
+        LCALL   ??afRegister?relay
+//  212 
+//  213   // Register for all key events - This app will handle all key events
+//  214   RegisterForKeys( p2p_test_TaskID );
+        ; Setup parameters for call to function RegisterForKeys
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??RegisterForKeys?relay
+//  215 
+//  216 
+//  217 
+//  218   // Update the display
+//  219 #if defined ( LCD_SUPPORTED )
+//  220     HalLcdWriteString( "p2p_test", HAL_LCD_LINE_1 );
+//  221 #endif
+//  222 
+//  223   ZDO_RegisterForZDOMsg( p2p_test_TaskID, End_Device_Bind_rsp );
+        ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+        MOV     R2,#0x20
+        MOV     R3,#-0x80
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??ZDO_RegisterForZDOMsg?relay
+//  224   ZDO_RegisterForZDOMsg( p2p_test_TaskID, Match_Desc_rsp );
+        ; Setup parameters for call to function ZDO_RegisterForZDOMsg
+        MOV     R2,#0x6
+        MOV     R3,#-0x80
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??ZDO_RegisterForZDOMsg?relay
+//  225 }
+        POP     DPH
+        CFI DPH0 SameValue
+        CFI CFA_SP SP+-4
+        POP     DPL
+        CFI DPL0 SameValue
+        CFI CFA_SP SP+-3
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+//  226 
+//  227 /*********************************************************************
+//  228  * @fn      p2p_test_ProcessEvent
+//  229  *
+//  230  * @brief   Generic Application Task event processor.  This function
+//  231  *          is called to process all events for the task.  Events
+//  232  *          include timers, messages and any other user defined events.
+//  233  *
+//  234  * @param   task_id  - The OSAL assigned task ID.
+//  235  * @param   events - events to process.  This is a bit map and can
+//  236  *                   contain more than one event.
+//  237  *
+//  238  * @return  none
+//  239  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  240 UINT16 p2p_test_ProcessEvent( byte task_id, UINT16 events )
+p2p_test_ProcessEvent:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function p2p_test_ProcessEvent
+//  241 {
+        FUNCALL p2p_test_ProcessEvent, osal_msg_receive
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, osal_msg_deallocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, osal_msg_receive
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, p2p_test_ProcessZDOMsgs
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, p2p_test_MessageMSGCB
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, NLME_GetShortAddr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, NLME_GetCoordShortAddr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, NLME_GetExtAddr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, p2p_test_SendTheMessage
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessEvent, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xc
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+//  242   afIncomingMSGPacket_t *MSGpkt;
+//  243   afDataConfirm_t *afDataConfirm;
+//  244 
+//  245   // Data Confirmation message fields
+//  246   byte sentEP;
+//  247   ZStatus_t sentStatus;
+//  248   byte sentTransID;       // This should match the value sent
+//  249 
+//  250   if ( events & SYS_EVENT_MSG )
+        MOV     A,#-0x80
+        ANL     A,R7
+        MOV     R1,A
+        CLR     A
+        JNZ     ??p2p_test_ProcessEvent_0
+        MOV     A,R1
+??p2p_test_ProcessEvent_0:
+        JZ      ??p2p_test_ProcessEvent_1
+//  251   {
+//  252     MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( p2p_test_TaskID );
+        ; Setup parameters for call to function osal_msg_receive
+        SJMP    ??p2p_test_ProcessEvent_2
+//  253     while ( MSGpkt )
+//  254     {
+//  255       switch ( MSGpkt->hdr.event )
+//  256       {
+//  257         case ZDO_CB_MSG:
+//  258           p2p_test_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );
+//  259           break;
+//  260 
+//  261         case KEY_CHANGE:
+//  262           // p2p_test_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
+//  263           break;
+//  264 
+//  265         case AF_DATA_CONFIRM_CMD:
+//  266           // This message is received as a confirmation of a data packet sent.
+//  267           // The status is of ZStatus_t type [defined in ZComDef.h]
+//  268           // The message fields are defined in AF.h
+//  269           afDataConfirm = (afDataConfirm_t *)MSGpkt;
+//  270           sentEP = afDataConfirm->endpoint;
+//  271           sentStatus = afDataConfirm->hdr.status;
+//  272           sentTransID = afDataConfirm->transID;
+//  273           (void)sentEP;
+//  274           (void)sentTransID;
+//  275 
+//  276           // Action taken when confirmation is received.
+//  277           if ( sentStatus != ZSuccess )
+//  278           {
+//  279             // The data wasn't delivered -- Do something
+//  280           }
+//  281           break;
+//  282 
+//  283         case AF_INCOMING_MSG_CMD:
+//  284           p2p_test_MessageMSGCB( MSGpkt );
+//  285           
+//  286  //         HalLedSet( HAL_LED_1, HAL_LED_MODE_ON );
+//  287   //        MicroWait( 62500 );
+//  288   //        MicroWait( 62500 );
+//  289    //       HalLedSet( HAL_LED_1, HAL_LED_MODE_OFF );
+//  290           break;
+//  291 
+//  292         case ZDO_STATE_CHANGE:
+//  293           p2p_test_NwkState = (devStates_t)(MSGpkt->hdr.status);
+??p2p_test_ProcessEvent_3:
+        MOV     DPL,?V0 + 0
+        MOV     DPH,?V0 + 1
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPTR,#p2p_test_NwkState
+        MOVX    @DPTR,A
+//  294           if (  (p2p_test_NwkState == DEV_ROUTER)
+//  295               || (p2p_test_NwkState == DEV_END_DEVICE) )
+        XRL     A,#0x7
+        JZ      ??p2p_test_ProcessEvent_4
+        MOVX    A,@DPTR
+        XRL     A,#0x6
+        JNZ     ??p2p_test_ProcessEvent_5
+//  296           {
+//  297               osal_start_timerEx( p2p_test_TaskID,
+//  298                                 p2p_test_SEND_MSG_EVT,
+//  299                                10 );
+??p2p_test_ProcessEvent_4:
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV     R4,#0xa
+        MOV     R5,#0x0
+        MOV     R2,#0x1
+        MOV     R3,#0x0
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_start_timerEx?relay
+//  300           }
+//  301           break;
+//  302 
+//  303         default:
+//  304           break;
+//  305       }
+//  306 
+//  307       // Release the memory
+//  308       osal_msg_deallocate( (uint8 *)MSGpkt );
+??p2p_test_ProcessEvent_5:
+        ; Setup parameters for call to function osal_msg_deallocate
+        MOV     R2,?V0 + 0
+        MOV     R3,?V0 + 1
+        LCALL   ??osal_msg_deallocate?relay
+//  309 
+//  310       // Next
+//  311       MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( p2p_test_TaskID );
+        ; Setup parameters for call to function osal_msg_receive
+??p2p_test_ProcessEvent_2:
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_msg_receive?relay
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     A,?V0 + 0
+        JNZ     ??p2p_test_ProcessEvent_6
+        MOV     A,?V0 + 1
+??p2p_test_ProcessEvent_6:
+        JZ      ??p2p_test_ProcessEvent_7
+        MOV     DPL,?V0 + 0
+        MOV     DPH,?V0 + 1
+        MOVX    A,@DPTR
+        LCALL   ?UC_SWITCH_SPARSE
+`?<Jumptable for p2p_test_ProcessEvent>_0`:
+        DATA
+        DB        0
+        DB        3
+        DB        26
+        DW        ??p2p_test_ProcessEvent_8
+        DB        209
+        DW        ??p2p_test_ProcessEvent_3
+        DB        211
+        DW        ??p2p_test_ProcessEvent_9
+        DW        ??p2p_test_ProcessEvent_5
+        CODE
+??p2p_test_ProcessEvent_9:
+        ; Setup parameters for call to function p2p_test_ProcessZDOMsgs
+        MOV     R2,?V0 + 0
+        MOV     R3,?V0 + 1
+        LCALL   ??p2p_test_ProcessZDOMsgs?relay
+        SJMP    ??p2p_test_ProcessEvent_5
+??p2p_test_ProcessEvent_8:
+        ; Setup parameters for call to function p2p_test_MessageMSGCB
+        MOV     R2,?V0 + 0
+        MOV     R3,?V0 + 1
+        LCALL   ??p2p_test_MessageMSGCB?relay
+        SJMP    ??p2p_test_ProcessEvent_5
+//  312     }
+//  313 
+//  314     // return unprocessed events
+//  315     return (events ^ SYS_EVENT_MSG);
+??p2p_test_ProcessEvent_7:
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,#-0x80
+        XRL     A,R7
+??p2p_test_ProcessEvent_10:
+        MOV     R3,A
+        SJMP    ??p2p_test_ProcessEvent_11
+//  316   }
+//  317 
+//  318   // Send a message out - This event is generated by a timer
+//  319   //  (setup in p2p_test_Init()).
+//  320   if ( events & p2p_test_SEND_MSG_EVT )
+??p2p_test_ProcessEvent_1:
+        MOV     A,R6
+        MOV     C,0xE0 /* A   */.0
+        JNC     ??p2p_test_ProcessEvent_12
+//  321   {
+//  322     p2p_msg[0] = 0xFF;
+        MOV     A,#-0x1
+        MOV     DPTR,#p2p_msg
+        MOVX    @DPTR,A
+//  323     //next is for ieeaddr
+//  324     shortaddr = NLME_GetShortAddr();
+        ; Setup parameters for call to function NLME_GetShortAddr
+        LCALL   ??NLME_GetShortAddr?relay
+        MOV     DPTR,#shortaddr
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  325     p2p_msg[1] = LO_UINT16(shortaddr);
+        MOV     DPTR,#shortaddr
+        MOVX    A,@DPTR
+        MOV     DPTR,#(p2p_msg + 1)
+        MOVX    @DPTR,A
+//  326     p2p_msg[2] = HI_UINT16(shortaddr);
+        MOV     DPTR,#(shortaddr + 1)
+        MOVX    A,@DPTR
+        MOV     DPTR,#(p2p_msg + 2)
+        MOVX    @DPTR,A
+//  327     fatheraddr = NLME_GetCoordShortAddr();
+        ; Setup parameters for call to function NLME_GetCoordShortAddr
+        LCALL   ??NLME_GetCoordShortAddr?relay
+        MOV     DPTR,#fatheraddr
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  328     p2p_msg[3] = LO_UINT16(fatheraddr);
+        MOV     DPTR,#fatheraddr
+        MOVX    A,@DPTR
+        MOV     DPTR,#(p2p_msg + 3)
+        MOVX    @DPTR,A
+//  329     p2p_msg[4] = HI_UINT16(fatheraddr);
+        MOV     DPTR,#(fatheraddr + 1)
+        MOVX    A,@DPTR
+        MOV     DPTR,#(p2p_msg + 4)
+        MOVX    @DPTR,A
+//  330     uint8 *ieeeAddr;
+//  331     ieeeAddr = NLME_GetExtAddr();
+//  332     p2p_msg[5]=  *(uint8 *)(ieeeAddr+7);//p2p_DeviceID; 
+        ; Setup parameters for call to function NLME_GetExtAddr
+        LCALL   ??NLME_GetExtAddr?relay
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPTR,#(p2p_msg + 5)
+        MOVX    @DPTR,A
+//  333     // Send "the" message
+//  334     p2p_test_SendTheMessage();
+        ; Setup parameters for call to function p2p_test_SendTheMessage
+        LCALL   ??p2p_test_SendTheMessage?relay
+//  335     osal_start_timerEx( p2p_test_TaskID,
+//  336                         p2p_test_SEND_MSG_EVT,
+//  337                         p2p_test_SEND_MSG_TIMEOUT );
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV     R4,#0x70
+        MOV     R5,#0x17
+        MOV     R2,#0x1
+        MOV     R3,#0x0
+        MOV     DPTR,#p2p_test_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_start_timerEx?relay
+//  338 
+//  339     // return unprocessed events
+//  340     return (events ^ p2p_test_SEND_MSG_EVT);
+        MOV     A,#0x1
+        XRL     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        SJMP    ??p2p_test_ProcessEvent_10
+//  341   }
+//  342 
+//  343   // Discard unknown events
+//  344   return 0;
+??p2p_test_ProcessEvent_12:
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+??p2p_test_ProcessEvent_11:
+        MOV     R7,#0x4
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+//  345 }
+//  346 
+//  347 /*********************************************************************
+//  348  * Event Generation Functions
+//  349  */
+//  350 /*********************************************************************
+//  351  * @fn      p2p_test_ProcessZDOMsgs()
+//  352  *
+//  353  * @brief   Process response messages
+//  354  *
+//  355  * @param   none
+//  356  *
+//  357  * @return  none
+//  358  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  359 void p2p_test_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg )
+p2p_test_ProcessZDOMsgs:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function p2p_test_ProcessZDOMsgs
+//  360 {
+        FUNCALL p2p_test_ProcessZDOMsgs, HalLedSet
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessZDOMsgs, HalLedSet
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessZDOMsgs, ZDO_ParseEPListRsp
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessZDOMsgs, HalLedSet
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_ProcessZDOMsgs, osal_mem_free
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  361   switch ( inMsg->clusterID )
+        MOV     A,R2
+        ADD     A,#0xc
+        MOV     DPL,A
+        MOV     A,R3
+        ADDC    A,#0x0
+        MOV     DPH,A
+        LCALL   ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_0:
+        LCALL   ?US_SWITCH_SPARSE
+`?<Jumptable for p2p_test_ProcessZDOMsgs>_0`:
+        DATA
+        DW        0
+        DW        2
+        DW        32774
+        DW        ??p2p_test_ProcessZDOMsgs_0
+        DW        32800
+        DW        ??p2p_test_ProcessZDOMsgs_1
+        DW        ??p2p_test_ProcessZDOMsgs_2
+        CODE
+//  362   {
+//  363     case End_Device_Bind_rsp:
+//  364       if ( ZDO_ParseBindRsp( inMsg ) == ZSuccess )
+??p2p_test_ProcessZDOMsgs_1:
+        MOV     A,R2
+        ADD     A,#0x11
+        MOV     DPL,A
+        MOV     A,R3
+        ADDC    A,#0x0
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        MOVX    A,@DPTR
+        JNZ     ??p2p_test_ProcessZDOMsgs_3
+//  365       {
+//  366         // Light LED
+//  367         HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+        ; Setup parameters for call to function HalLedSet
+        MOV     R2,#0x1
+??p2p_test_ProcessZDOMsgs_4:
+        MOV     R1,#0x8
+        LCALL   ??HalLedSet?relay
+        SJMP    ??p2p_test_ProcessZDOMsgs_2
+//  368       }
+//  369 #if defined(BLINK_LEDS)
+//  370       else
+//  371       {
+//  372         // Flash LED to show failure
+//  373         HalLedSet ( HAL_LED_4, HAL_LED_MODE_FLASH );
+??p2p_test_ProcessZDOMsgs_3:
+        ; Setup parameters for call to function HalLedSet
+        MOV     R2,#0x4
+        SJMP    ??p2p_test_ProcessZDOMsgs_4
+//  374       }
+//  375 #endif
+//  376       break;
+//  377 
+//  378     case Match_Desc_rsp:
+//  379       {
+//  380         ZDO_ActiveEndpointRsp_t *pRsp = ZDO_ParseEPListRsp( inMsg );
+??p2p_test_ProcessZDOMsgs_0:
+        ; Setup parameters for call to function ZDO_ParseEPListRsp
+        LCALL   ??ZDO_ParseEPListRsp?relay
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     R6,?V0 + 0
+        MOV     R7,?V0 + 1
+//  381         if ( pRsp )
+        MOV     A,R6
+        JNZ     ??p2p_test_ProcessZDOMsgs_5
+        MOV     A,R7
+??p2p_test_ProcessZDOMsgs_5:
+        JZ      ??p2p_test_ProcessZDOMsgs_2
+//  382         {
+//  383           if ( pRsp->status == ZSuccess && pRsp->cnt )
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    A,@DPTR
+        JNZ     ??p2p_test_ProcessZDOMsgs_6
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        JZ      ??p2p_test_ProcessZDOMsgs_6
+//  384           {
+//  385             p2p_test_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+        MOV     A,#0x2
+        MOV     DPTR,#(p2p_test_DstAddr + 2)
+        MOVX    @DPTR,A
+//  386             p2p_test_DstAddr.addr.shortAddr = pRsp->nwkAddr;
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     DPTR,#p2p_test_DstAddr
+        MOV     A,R0
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R1
+        MOVX    @DPTR,A
+//  387             // Take the first endpoint, Can be changed to search through endpoints
+//  388             p2p_test_DstAddr.endPoint = pRsp->epList[0];
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPTR,#(p2p_test_DstAddr + 3)
+        MOVX    @DPTR,A
+//  389 
+//  390             // Light LED
+//  391             HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+        ; Setup parameters for call to function HalLedSet
+        MOV     R2,#0x1
+        MOV     R1,#0x8
+        LCALL   ??HalLedSet?relay
+//  392           }
+//  393           osal_mem_free( pRsp );
+??p2p_test_ProcessZDOMsgs_6:
+        ; Setup parameters for call to function osal_mem_free
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   ??osal_mem_free?relay
+//  394         }
+//  395       }
+//  396       break;
+//  397   }
+//  398 }
+??p2p_test_ProcessZDOMsgs_2:
+        SJMP    ??Subroutine1_0
+        CFI EndBlock cfiBlock2
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 19)
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     A,#0x9
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 10)
+??Subroutine1_0:
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock3
+//  399 
+//  400 /*********************************************************************
+//  401  * @fn      p2p_test_HandleKeys
+//  402  *
+//  403  * @brief   Handles all key events for this device.
+//  404  *
+//  405  * @param   shift - true if in shift/alt.
+//  406  * @param   keys - bit field for key events. Valid entries:
+//  407  *                 HAL_KEY_SW_4
+//  408  *                 HAL_KEY_SW_3
+//  409  *                 HAL_KEY_SW_2
+//  410  *                 HAL_KEY_SW_1
+//  411  *
+//  412  * @return  none
+//  413  */
+//  414 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  415 void p2p_test_HandleKeys( byte shift, byte keys )
+p2p_test_HandleKeys:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function p2p_test_HandleKeys
+//  416 {
+        FUNCALL p2p_test_HandleKeys, HalLedSet
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_HandleKeys, NLME_GetShortAddr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_HandleKeys, ZDP_EndDeviceBindReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 28, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 28, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_HandleKeys, HalLedSet
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL p2p_test_HandleKeys, ZDP_MatchDescReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 27, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 27, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 9
+        MOV     A,#-0x9
+        LCALL   ?ALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 19)
+        MOV     A,R2
+        MOV     R6,A
+//  417   zAddrType_t dstAddr;
+//  418 
+//  419   // Shift is used to make each button/switch dual purpose.
+//  420   if ( shift )
+        MOV     A,R1
+        JZ      $+5
+        LJMP    ??p2p_test_HandleKeys_0 & 0xFFFF
+//  421   {
+//  422     if ( keys & HAL_KEY_SW_1 )
+//  423     {
+//  424     }
+//  425     if ( keys & HAL_KEY_SW_2 )
+//  426     {
+//  427     }
+//  428     if ( keys & HAL_KEY_SW_3 )
+//  429     {
+//  430     }
+//  431     if ( keys & HAL_KEY_SW_4 )
+//  432     {
+//  433     }
+//  434   }
+//  435   else
+//  436   {
+//  437     if ( keys & HAL_KEY_SW_1 )
+//  438     {
+//  439     }
+//  440 
+//  441     if ( keys & HAL_KEY_SW_2 )
+        MOV     A,R6
+        MOV     C,0xE0 /* A   */.1
+        JNC     ??p2p_test_HandleKeys_1
+//  442     {
+//  443       HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );
+        ; Setup parameters for call to function HalLedSet
+        MOV     R2,#0x0
+        MOV     R1,#0x8
+        LCALL   ??HalLedSet?relay
+//  444 
+//  445       // Initiate an End Device Bind Request for the mandatory endpoint
+//  446       dstAddr.addrMode = Addr16Bit;
+        MOV     A,#0x8
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,#0x2
+        MOVX    @DPTR,A
+//  447       dstAddr.addr.shortAddr = 0x0000; // Coordinator
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  448       ZDP_EndDeviceBindReq( &dstAddr, NLME_GetShortAddr(),
+//  449                             p2p_test_epDesc.endPoint,
+//  450                             p2p_test_PROFID,
+//  451                             p2p_test_MAX_CLUSTERS, (cId_t *)p2p_test_ClusterList,
+//  452                             p2p_test_MAX_CLUSTERS, (cId_t *)p2p_test_ClusterList,
+//  453                             FALSE );
+        ; Setup parameters for call to function NLME_GetShortAddr
+        LCALL   ??NLME_GetShortAddr?relay
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     R4,?V0 + 0
+        MOV     R5,?V0 + 1
+        ; Setup parameters for call to function ZDP_EndDeviceBindReq
+        MOV     ?V0 + 0,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_ONE
+        CFI CFA_XSP16 add(XSP16, 20)
+        MOV     ?V0 + 0,#(p2p_test_ClusterList & 0xff)
+        MOV     ?V0 + 1,#((p2p_test_ClusterList >> 8) & 0xff)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 22)
+        MOV     ?V0 + 0,#0x2
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_ONE
+        CFI CFA_XSP16 add(XSP16, 23)
+        MOV     ?V0 + 0,#(p2p_test_ClusterList & 0xff)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 25)
+        MOV     ?V0 + 0,#0x2
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_ONE
+        CFI CFA_XSP16 add(XSP16, 26)
+        MOV     ?V0 + 0,#0x4
+        MOV     ?V0 + 1,#0xf
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 28)
+        MOV     DPTR,#p2p_test_epDesc
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     A,#0x9
+        LCALL   ?XSTACK_DISP0_8
+        MOV     R2,DPL
+        MOV     R3,DPH
+        LCALL   ??ZDP_EndDeviceBindReq?relay
+        MOV     A,#0x9
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 19)
+//  454     }
+//  455 
+//  456     if ( keys & HAL_KEY_SW_3 )
+//  457     {
+//  458     }
+//  459 
+//  460     if ( keys & HAL_KEY_SW_4 )
+??p2p_test_HandleKeys_1:
+        MOV     A,R6
+        MOV     C,0xE0 /* A   */.3
+        JNC     ??p2p_test_HandleKeys_0
+//  461     {
+//  462       HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );
+        ; Setup parameters for call to function HalLedSet
+        MOV     R2,#0x0
+        MOV     R1,#0x8
+        LCALL   ??HalLedSet?relay
+//  463 
+//  464       // Initiate a Match Description Request (Service Discovery)
+//  465       dstAddr.addrMode = AddrBroadcast;
+        MOV     A,#0x8
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,#0xf
+        MOVX    @DPTR,A
+//  466       dstAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#-0x1
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  467       ZDP_MatchDescReq( &dstAddr, NWK_BROADCAST_SHORTADDR,
+//  468                         p2p_test_PROFID,
+//  469                         p2p_test_MAX_CLUSTERS, (cId_t *)p2p_test_ClusterList,
+//  470                         p2p_test_MAX_CLUSTERS, (cId_t *)p2p_test_ClusterList,
+//  471                         FALSE );
+        ; Setup parameters for call to function ZDP_MatchDescReq
+        MOV     ?V0 + 0,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_ONE
+        CFI CFA_XSP16 add(XSP16, 20)
+        MOV     ?V0 + 0,#(p2p_test_ClusterList & 0xff)
+        MOV     ?V0 + 1,#((p2p_test_ClusterList >> 8) & 0xff)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 22)
+        MOV     ?V0 + 0,#0x2
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_ONE
+        CFI CFA_XSP16 add(XSP16, 23)
+        MOV     ?V0 + 0,#(p2p_test_ClusterList & 0xff)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 25)
+        MOV     ?V0 + 0,#0x4
+        MOV     ?V0 + 1,#0xf
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 27)
+        MOV     R1,#0x2
+        MOV     R4,#-0x1
+        MOV     R5,#-0x1
+        MOV     A,#0x8
+        LCALL   ?XSTACK_DISP0_8
+        MOV     R2,DPL
+        MOV     R3,DPH
+        LCALL   ??ZDP_MatchDescReq?relay
+        MOV     A,#0x8
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 19)
+//  472     }
+//  473   }
+//  474 }
+??p2p_test_HandleKeys_0:
+        LJMP    ?Subroutine1 & 0xFFFF
+        CFI EndBlock cfiBlock4
+//  475 
+//  476 /*********************************************************************
+//  477  * LOCAL FUNCTIONS
+//  478  */
+//  479 
+//  480 /*********************************************************************
+//  481  * @fn      p2p_test_MessageMSGCB
+//  482  *
+//  483  * @brief   Data message processor callback.  This function processes
+//  484  *          any incoming data - probably from other devices.  So, based
+//  485  *          on cluster ID, perform the intended action.
+//  486  *
+//  487  * @param   none
+//  488  *
+//  489  * @return  none
+//  490  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  491 void p2p_test_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+p2p_test_MessageMSGCB:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function p2p_test_MessageMSGCB
+//  492 {
+        FUNCALL p2p_test_MessageMSGCB, HalUARTWrite
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  493   switch ( pkt->clusterId )
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        LCALL   ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_1:
+        LCALL   ?US_SWITCH_DENSE
+`?<Jumptable for p2p_test_MessageMSGCB>_0`:
+        DATA
+        DW        1
+        DB        0
+        DW        ??p2p_test_MessageMSGCB_0
+        DW        ??p2p_test_MessageMSGCB_1
+        CODE
+//  494   {
+//  495     case p2p_test_CLUSTERID:
+//  496       // "the" message
+//  497       HalUARTWrite( 0, (uint8*)pkt->cmd.Data, pkt->cmd.DataLength );
+??p2p_test_MessageMSGCB_1:
+        ; Setup parameters for call to function HalUARTWrite
+        MOV     A,R2
+        ADD     A,#0x13
+        MOV     DPL,A
+        MOV     A,R3
+        ADDC    A,#0x0
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     R4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R5,A
+        MOV     A,R2
+        ADD     A,#0x15
+        MOV     DPL,A
+        MOV     A,R3
+        ADDC    A,#0x0
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        MOV     R1,#0x0
+        LCALL   ??HalUARTWrite?relay
+//  498       break;
+//  499    
+//  500   }
+//  501 }
+??p2p_test_MessageMSGCB_0:
+        LJMP    ??Subroutine1_0 & 0xFFFF
+        CFI EndBlock cfiBlock5
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiCond6 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_0
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        CFI Block cfiCond7 Using cfiCommon0
+        CFI (cfiCond7) NoFunction
+        CFI (cfiCond7) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond7) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond7) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond7) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond7) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond7) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond7) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond7) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond7) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond7) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond7) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond7) CFA_SP SP+0
+        CFI (cfiCond7) CFA_XSP16 add(XSP16, 10)
+        CFI Block cfiPicker8 Using cfiCommon1
+        CFI (cfiPicker8) NoFunction
+        CFI (cfiPicker8) Picker
+        MOVX    A,@DPTR
+        MOV     ?V0 + 0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0 + 1,A
+        MOV     R0,#?V0 + 0
+        RET
+        CFI EndBlock cfiCond6
+        CFI EndBlock cfiCond7
+        CFI EndBlock cfiPicker8
+//  502 
+//  503 
+//  504 /*********************************************************************
+//  505  * @fn      p2p_test_SendTheMessage
+//  506  *
+//  507  * @brief   Send "the" message.
+//  508  *
+//  509  * @param   none
+//  510  *
+//  511  * @return  none
+//  512  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  513 void p2p_test_SendTheMessage( void )
+p2p_test_SendTheMessage:
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function p2p_test_SendTheMessage
+//  514 {
+        FUNCALL p2p_test_SendTheMessage, AF_DataRequest
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  515    //char p2p_msg[] = "Hello World ";
+//  516    if ( AF_DataRequest( &p2p_test_DstAddr, &p2p_test_epDesc,
+//  517                        p2p_test_CLUSTERID,
+//  518                        6,
+//  519                        (byte *)&p2p_msg,
+//  520                        &p2p_test_TransID,
+//  521                        AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
+        ; Setup parameters for call to function AF_DataRequest
+        MOV     ?V0 + 0,#0xa
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_ONE
+        CFI CFA_XSP16 add(XSP16, 11)
+        MOV     ?V0 + 0,#(p2p_test_TransID & 0xff)
+        MOV     ?V0 + 1,#((p2p_test_TransID >> 8) & 0xff)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 13)
+        MOV     ?V0 + 0,#(p2p_msg & 0xff)
+        MOV     ?V0 + 1,#((p2p_msg >> 8) & 0xff)
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 15)
+        MOV     ?V0 + 0,#0x6
+        MOV     ?V0 + 1,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 17)
+        MOV     ?V0 + 0,#0x1
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 19)
+        MOV     R1,#0x20
+        MOV     R4,#(p2p_test_epDesc & 0xff)
+        MOV     R5,#((p2p_test_epDesc >> 8) & 0xff)
+        MOV     R2,#(p2p_test_DstAddr & 0xff)
+        MOV     R3,#((p2p_test_DstAddr >> 8) & 0xff)
+        LCALL   ??AF_DataRequest?relay
+        LJMP    ?Subroutine1 & 0xFFFF
+        CFI EndBlock cfiBlock9
+//  522 
+//  523   {
+//  524     // Successfully requested to be sent.  
+//  525 //    HalUARTWrite( 0,  (uint8 *)p2p_msg, (byte)osal_strlen( p2p_msg ) + 1);
+//  526 
+//  527   } 
+//  528   
+//  529   else
+//  530   {
+//  531     // Error occurred in request to send.
+//  532   }
+//  533 }
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+        DATA
+`?<Initializer for p2p_test_ClusterList>`:
+        DW 1
+        DB 0, 0
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+        DATA
+`?<Initializer for p2p_test_SimpleDesc>`:
+        DB 10
+        DW 3844, 1
+        DB 0, 2
+        DW p2p_test_ClusterList
+        DB 2
+        DW p2p_test_ClusterList
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??p2p_test_Init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    p2p_test_Init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??p2p_test_ProcessEvent?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    p2p_test_ProcessEvent
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??p2p_test_ProcessZDOMsgs?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    p2p_test_ProcessZDOMsgs
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??p2p_test_HandleKeys?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    p2p_test_HandleKeys
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??p2p_test_MessageMSGCB?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    p2p_test_MessageMSGCB
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??p2p_test_SendTheMessage?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    p2p_test_SendTheMessage
+
+        END
+//  534 
+//  535 
+//  536 
+// 
+// 913 bytes in segment BANKED_CODE
+//  36 bytes in segment BANK_RELAYS
+//  16 bytes in segment XDATA_I
+//  16 bytes in segment XDATA_ID
+//  23 bytes in segment XDATA_Z
+// 
+// 965 bytes of CODE  memory
+//  39 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

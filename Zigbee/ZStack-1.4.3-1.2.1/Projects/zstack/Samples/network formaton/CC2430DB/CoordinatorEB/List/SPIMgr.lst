@@ -1,0 +1,1932 @@
+###############################################################################
+#                                                                             #
+# IAR 8051 C/C++ Compiler V7.30B/W32                    28/Oct/2013  18:58:29 #
+# Copyright 2004-2007 IAR Systems. All rights reserved.                       #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data                                               #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\8-22\修改中2013.8.12Texas Instruments           #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Components\mt\SPIMg #
+#                          r.c                                                #
+#    Command line       =  -f "C:\8-22\修改中2013.8.12Texas Instruments       #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\..\..\Tools\CC24 #
+#                          30DB\f8wCoord.cfg" (-DCPU32MHZ -DFORCE_MAC_NEAR    #
+#                          -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRU #
+#                          E -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS         #
+#                          "-DCONST=const __code" -DGENERIC=__generic) -f     #
+#                          "C:\8-22\修改中2013.8.12Texas Instruments          #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\..\..\Tools\CC24 #
+#                          30DB\f8wConfig.cfg" (-DSECURE=0                    #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1234                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=30            #
+#                          -DMAX_RREQ_ENTRIES=10 -DAPSC_MAX_FRAME_RETRIES=3   #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=20           #
+#                          -DNWK_MAX_BINDING_ENTRIES=10                       #
+#                          -DMAX_BINDING_CLUSTER_IDS=5 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=10000       #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 "C:\8-22\修改中2013.8.12Tex #
+#                          as Instruments longmenshan\ZStack-1.4.3-1.2.1\Comp #
+#                          onents\mt\SPIMgr.c" -D CC2430EB -D xREFLECTOR -D   #
+#                          ZTOOL_P1 -D MT_TASK -D MT_ZDO_FUNC -D              #
+#                          xLCD_SUPPORTED=DEBUG -D NV_RESTORE -lC             #
+#                          "C:\8-22\修改中2013.8.12Texas Instruments          #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\CoordinatorEB\List\ #
+#                          " -lA "C:\8-22\修改中2013.8.12Texas Instruments    #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\CoordinatorEB\List\ #
+#                          " --diag_suppress Pe001,Pa010 --diag_remark pe550  #
+#                          -o "C:\8-22\修改中2013.8.12Texas Instruments       #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\CoordinatorEB\Obj\" #
+#                           -e --require_prototypes -z9 --no_code_motion      #
+#                          --debug --core=plain --dptr=16,1                   #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data --nr_virtual_regs 8 -I      #
+#                          "C:\8-22\修改中2013.8.12Texas Instruments          #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\" -I                #
+#                          "C:\8-22\修改中2013.8.12Texas Instruments          #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\SOURCE\" -I      #
+#                          "C:\8-22\修改中2013.8.12Texas Instruments          #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\..\..\ZMAIN\TI24 #
+#                          30DB\" -I "C:\8-22\修改中2013.8.12Texas            #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MT\"   #
+#                          -I "C:\8-22\修改中2013.8.12Texas Instruments       #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\..\..\..\..\COMP #
+#                          ONENTS\HAL\INCLUDE\" -I "C:\8-22\修改中2013.8.12Te #
+#                          xas Instruments longmenshan\ZStack-1.4.3-1.2.1\Pro #
+#                          jects\zstack\Samples\network                       #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\HAL\TA #
+#                          RGET\CC2430EB\" -I "C:\8-22\修改中2013.8.12Texas   #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\OSAL\M #
+#                          CU\CCSOC\" -I "C:\8-22\修改中2013.8.12Texas        #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\OSAL\I #
+#                          NCLUDE\" -I "C:\8-22\修改中2013.8.12Texas          #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\STACK\ #
+#                          AF\" -I "C:\8-22\修改中2013.8.12Texas Instruments  #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\..\..\..\..\COMP #
+#                          ONENTS\STACK\NWK\" -I "C:\8-22\修改中2013.8.12Texa #
+#                          s Instruments longmenshan\ZStack-1.4.3-1.2.1\Proje #
+#                          cts\zstack\Samples\network                         #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\STACK\ #
+#                          SEC\" -I "C:\8-22\修改中2013.8.12Texas             #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\STACK\ #
+#                          SYS\" -I "C:\8-22\修改中2013.8.12Texas             #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\STACK\ #
+#                          ZDO\" -I "C:\8-22\修改中2013.8.12Texas             #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\ZMAC\F #
+#                          8W\" -I "C:\8-22\修改中2013.8.12Texas Instruments  #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\..\..\..\..\..\COMP #
+#                          ONENTS\ZMAC\" -I "C:\8-22\修改中2013.8.12Texas     #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\SERVIC #
+#                          ES\SADDR\" -I "C:\8-22\修改中2013.8.12Texas        #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\SERVIC #
+#                          ES\SDATA\" -I "C:\8-22\修改中2013.8.12Texas        #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MAC\IN #
+#                          CLUDE\" -I "C:\8-22\修改中2013.8.12Texas           #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MAC\HI #
+#                          GH_LEVEL\" -I "C:\8-22\修改中2013.8.12Texas        #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MAC\LO #
+#                          W_LEVEL\SRF03\" -I "C:\8-22\修改中2013.8.12Texas   #
+#                          Instruments longmenshan\ZStack-1.4.3-1.2.1\Project #
+#                          s\zstack\Samples\network                           #
+#                          formaton\CC2430DB\..\..\..\..\..\COMPONENTS\MAC\LO #
+#                          W_LEVEL\SRF03\SINGLE_CHIP\" -I "C:\Program         #
+#                          Files\IAR Systems\Embedded Workbench 4.0           #
+#                          Evaluation version\8051\INC\" -I "C:\Program       #
+#                          Files\IAR Systems\Embedded Workbench 4.0           #
+#                          Evaluation version\8051\INC\CLIB\"                 #
+#    List file          =  C:\8-22\修改中2013.8.12Texas Instruments           #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\CoordinatorEB\List\ #
+#                          SPIMgr.lst                                         #
+#    Object file        =  C:\8-22\修改中2013.8.12Texas Instruments           #
+#                          longmenshan\ZStack-1.4.3-1.2.1\Projects\zstack\Sam #
+#                          ples\network formaton\CC2430DB\CoordinatorEB\Obj\S #
+#                          PIMgr.r51                                          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\8-22\修改中2013.8.12Texas Instruments longmenshan\ZStack-1.4.3-1.2.1\Components\mt\SPIMgr.c
+      1          /**************************************************************************************************
+      2            Filename:       SPIMgr.c
+      3            Revised:        $Date: 2007-10-28 18:43:04 -0700 (Sun, 28 Oct 2007) $
+      4            Revision:       $Revision: 15800 $
+      5          
+      6            Description:    This module handles anything dealing with the serial port.
+      7          
+      8          
+      9            Copyright 2005-2007 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED 揂S IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           *                                           INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          #include "OSAL.h"
+     45          #include "hal_uart.h"
+     46          #include "MTEL.h"
+     47          #include "SPIMgr.h"
+     48          #include "OSAL_Memory.h"
+     49          
+     50          /***************************************************************************************************
+     51           *                                            MACROS
+     52           ***************************************************************************************************/
+     53          
+     54          /***************************************************************************************************
+     55           *                                           CONSTANTS
+     56           ***************************************************************************************************/
+     57          
+     58          /* State values for ZTool protocal */  //uart0
+     59          #define SOP_STATE      0x00
+     60          #define CMD_STATE1     0x01
+     61          #define CMD_STATE2     0x02
+     62          #define LEN_STATE      0x03
+     63          #define DATA_STATE     0x04
+     64          #define FCS_STATE      0x05
+     65          
+     66          //uart1
+     67          #define STATION 0x01
+     68          #define FUNC 0x03
+     69          
+     70          #define WATER_SOP      0x00
+     71          #define WATER_CMD     0x01
+     72          //#define WATER_CMD2     0x02
+     73          #define WATER_LEN     0x03
+     74          #define WATER_DATA    0x04
+     75          #define WATER_FCS1     0x05
+     76          #define WATER_FCS2    0x06
+     77          
+     78          // # if p2p_test_NwkState == DEV_ZB_COORD 
+     79            #define WATER_UART    0x01
+     80          //#else
+     81           // #define WATER_UART    0x00
+     82          //#endif
+     83          
+     84          
+     85          /***************************************************************************************************
+     86           *                                            TYPEDEFS
+     87           ***************************************************************************************************/
+     88          
+     89          /***************************************************************************************************
+     90           *                                         GLOBAL VARIABLES
+     91           ***************************************************************************************************/
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     92          byte App_TaskID;
+   \                     App_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     93          
+     94          /* ZTool protocal parameters */
+     95          
+     96          #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     97          uint8 state;
+   \                     state:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     98          uint8  CMD_Token[2];
+   \                     CMD_Token:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     99          uint8  LEN_Token;
+   \                     LEN_Token:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    100          uint8  FSC_Token;
+   \                     FSC_Token:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    101          mtOSALSerialData_t  *SPI_Msg;
+   \                     SPI_Msg:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    102          uint8  tempDataLen;
+   \                     tempDataLen:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    103          #endif //ZTOOL
+    104          
+    105          #if defined (ZAPP_P1) || defined (ZAPP_P2)
+    106          uint16  SPIMgr_MaxZAppBufLen;
+    107          bool    SPIMgr_ZAppRxStatus;
+    108          #endif
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    109          mtOSALSerialData_t  *WATER_SPI_Msg;
+   \                     WATER_SPI_Msg:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    110           uint8 state1=WATER_SOP;
+   \                     state1:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    111           uint8 LEN_Water;
+   \                     LEN_Water:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    112           uint8 FCS_Water[2];
+   \                     FCS_Water:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    113          
+    114          
+    115          /***************************************************************************************************
+    116           *                                          LOCAL FUNCTIONS
+    117           ***************************************************************************************************/
+    118          
+    119          /***************************************************************************************************
+    120           * @fn      SPIMgr_Init
+    121           *
+    122           * @brief
+    123           *
+    124           * @param   None
+    125           *
+    126           * @return  None
+    127          ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    128          void SPIMgr_Init ()
+   \                     SPIMgr_Init:
+    129          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 58
+   \   000004   74C6         MOV     A,#-0x3a
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    130            halUARTCfg_t uartConfig0,uartConfig1;
+    131          
+    132            /* Initialize APP ID */
+    133            App_TaskID = 0;  
+   \   000009   E4           CLR     A
+   \   00000A   90....       MOV     DPTR,#App_TaskID
+   \   00000D   F0           MOVX    @DPTR,A
+    134            
+    135          #if WATER_UART==1
+    136              /* UART Configuration */
+    137           
+    138              uartConfig0.configured           = TRUE;
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   85..82       MOV     DPL,?XSP + 0
+   \   000013   85..83       MOV     DPH,?XSP + 1
+   \   000016   F0           MOVX    @DPTR,A
+    139              uartConfig0.baudRate             = SPI_MGR_DEFAULT_BAUDRATE;
+   \   000017   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001A   7406         MOV     A,#0x6
+   \   00001C   F0           MOVX    @DPTR,A
+    140              uartConfig0.flowControl          =SPI_MGR_DEFAULT_OVERFLOW ;
+   \   00001D   7402         MOV     A,#0x2
+   \   00001F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000022   E4           CLR     A
+   \   000023   F0           MOVX    @DPTR,A
+    141              uartConfig0.flowControlThreshold = SPI_MGR_DEFAULT_THRESHOLD;
+   \   000024   7403         MOV     A,#0x3
+   \   000026   12....       LCALL   ?XSTACK_DISP0_8
+   \   000029   7430         MOV     A,#0x30
+   \   00002B   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+    142              uartConfig0.rx.maxBufSize        = SPI_MGR_DEFAULT_MAX_RX_BUFF;
+   \                     ??CrossCallReturnLabel_9:
+   \   00002E   740A         MOV     A,#0xa
+   \   000030   12....       LCALL   ?XSTACK_DISP0_8
+   \   000033   12....       LCALL   ?Subroutine4 & 0xFFFF
+    143              uartConfig0.tx.maxBufSize        = SPI_MGR_DEFAULT_MAX_TX_BUFF;
+   \                     ??CrossCallReturnLabel_10:
+   \   000036   7412         MOV     A,#0x12
+   \   000038   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003B   12....       LCALL   ?Subroutine4 & 0xFFFF
+    144              uartConfig0.idleTimeout          = SPI_MGR_DEFAULT_IDLE_TIMEOUT;
+   \                     ??CrossCallReturnLabel_11:
+   \   00003E   7405         MOV     A,#0x5
+   \   000040   12....       LCALL   ?XSTACK_DISP0_8
+   \   000043   7406         MOV     A,#0x6
+   \   000045   F0           MOVX    @DPTR,A
+    145              uartConfig0.intEnable            = TRUE;
+   \   000046   7416         MOV     A,#0x16
+   \   000048   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004B   7401         MOV     A,#0x1
+   \   00004D   F0           MOVX    @DPTR,A
+    146             #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+    147          
+    148              uartConfig0.callBackFunc         = SPIMgr_ProcessZToolData;
+   \   00004E   741B         MOV     A,#0x1b
+   \   000050   12....       LCALL   ?XSTACK_DISP0_8
+   \   000053   74..         MOV     A,#(??SPIMgr_ProcessZToolData?relay & 0xff)
+   \   000055   F0           MOVX    @DPTR,A
+   \   000056   A3           INC     DPTR
+   \   000057   74..         MOV     A,#((??SPIMgr_ProcessZToolData?relay >> 8) & 0xff)
+   \   000059   F0           MOVX    @DPTR,A
+    149            #elif defined (ZAPP_P1) || defined (ZAPP_P2)
+    150             uartConfig0.callBackFunc         = SPIMgr_ProcessZAppData;
+    151            #else
+    152             uartConfig0.callBackFunc         = NULL;
+    153            #endif  
+    154             HalUARTOpen(0, &uartConfig0); 
+   \   00005A                ; Setup parameters for call to function HalUARTOpen
+   \   00005A   85..82       MOV     DPL,?XSP + 0
+   \   00005D   85..83       MOV     DPH,?XSP + 1
+   \   000060   AA82         MOV     R2,DPL
+   \   000062   AB83         MOV     R3,DPH
+   \   000064   7900         MOV     R1,#0x0
+   \   000066   12....       LCALL   ??HalUARTOpen?relay
+    155            
+    156          #endif 
+    157           
+    158          
+    159            uartConfig1.configured           = TRUE;
+   \   000069   741D         MOV     A,#0x1d
+   \   00006B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00006E   7401         MOV     A,#0x1
+   \   000070   F0           MOVX    @DPTR,A
+    160            uartConfig1.baudRate             = HAL_UART_BR_9600 ;
+   \   000071   741E         MOV     A,#0x1e
+   \   000073   12....       LCALL   ?XSTACK_DISP0_8
+   \   000076   7403         MOV     A,#0x3
+   \   000078   F0           MOVX    @DPTR,A
+    161            uartConfig1.flowControl          = SPI_MGR_DEFAULT_OVERFLOW;
+   \   000079   741F         MOV     A,#0x1f
+   \   00007B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00007E   E4           CLR     A
+   \   00007F   F0           MOVX    @DPTR,A
+    162            uartConfig1.flowControlThreshold = SPI_MGR_DEFAULT_THRESHOLD;
+   \   000080   7420         MOV     A,#0x20
+   \   000082   12....       LCALL   ?XSTACK_DISP0_8
+   \   000085   7430         MOV     A,#0x30
+   \   000087   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+    163            uartConfig1.rx.maxBufSize        = SPI_MGR_DEFAULT_MAX_RX_BUFF;
+   \                     ??CrossCallReturnLabel_12:
+   \   00008A   7427         MOV     A,#0x27
+   \   00008C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00008F   12....       LCALL   ?Subroutine4 & 0xFFFF
+    164            uartConfig1.tx.maxBufSize        = SPI_MGR_DEFAULT_MAX_TX_BUFF;
+   \                     ??CrossCallReturnLabel_13:
+   \   000092   742F         MOV     A,#0x2f
+   \   000094   12....       LCALL   ?XSTACK_DISP0_8
+   \   000097   12....       LCALL   ?Subroutine4 & 0xFFFF
+    165            uartConfig1.idleTimeout          = SPI_MGR_DEFAULT_IDLE_TIMEOUT;
+   \                     ??CrossCallReturnLabel_14:
+   \   00009A   7422         MOV     A,#0x22
+   \   00009C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009F   7406         MOV     A,#0x6
+   \   0000A1   F0           MOVX    @DPTR,A
+    166            uartConfig1.intEnable            = TRUE;  
+   \   0000A2   7433         MOV     A,#0x33
+   \   0000A4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A7   7401         MOV     A,#0x1
+   \   0000A9   F0           MOVX    @DPTR,A
+    167            uartConfig1.callBackFunc         = WATER_SPIMgr_ProcessZToolData;
+   \   0000AA   7438         MOV     A,#0x38
+   \   0000AC   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000AF   74..         MOV     A,#(??WATER_SPIMgr_ProcessZToolData?relay & 0xff)
+   \   0000B1   F0           MOVX    @DPTR,A
+   \   0000B2   A3           INC     DPTR
+   \   0000B3   74..         MOV     A,#((??WATER_SPIMgr_ProcessZToolData?relay >> 8) & 0xff)
+   \   0000B5   F0           MOVX    @DPTR,A
+    168             
+    169            /* Start UART */
+    170           HalUARTOpen( WATER_UART, &uartConfig1); 
+   \   0000B6                ; Setup parameters for call to function HalUARTOpen
+   \   0000B6   741D         MOV     A,#0x1d
+   \   0000B8   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000BB   AA82         MOV     R2,DPL
+   \   0000BD   AB83         MOV     R3,DPH
+   \   0000BF   7901         MOV     R1,#0x1
+   \   0000C1   12....       LCALL   ??HalUARTOpen?relay
+    171             
+    172           
+    173          
+    174           
+    175              
+    176          //#else
+    177            /* Silence IAR compiler warning */
+    178           // (void)uartConfig;
+    179          //#endif 
+    180          
+    181            /* Initialize for ZApp */
+    182          
+    183          //#if defined (ZAPP_P1) || defined (ZAPP_P2)
+    184            /* Default max bytes that ZAPP can take */
+    185           /* SPIMgr_MaxZAppBufLen  = 1;
+    186            SPIMgr_ZAppRxStatus   = SPI_MGR_ZAPP_RX_READY;
+    187          #endif
+    188            */
+    189          
+    190          
+    191          }
+   \   0000C4   743A         MOV     A,#0x3a
+   \   0000C6   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000C9                REQUIRE ?Subroutine25
+   \   0000C9                ; // Fall through to label ?Subroutine25
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine25:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   7480         MOV     A,#-0x80
+   \                     ??Subroutine4_0:
+   \   000002   F0           MOVX    @DPTR,A
+   \   000003   A3           INC     DPTR
+   \   000004   E4           CLR     A
+   \   000005   F0           MOVX    @DPTR,A
+   \   000006   22           RET
+    192          
+    193          /***************************************************************************************************
+    194           * @fn      MT_SerialRegisterTaskID
+    195           *
+    196           * @brief
+    197           *
+    198           *   This function registers the taskID of the application so it knows
+    199           *   where to send the messages whent they come in.
+    200           *
+    201           * @param   void
+    202           *
+    203           * @return  void
+    204           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    205          void SPIMgr_RegisterTaskID( byte taskID )
+   \                     SPIMgr_RegisterTaskID:
+    206          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    207            App_TaskID = taskID;
+   \   000004   E9           MOV     A,R1
+   \   000005   90....       MOV     DPTR,#App_TaskID
+   \   000008   F0           MOVX    @DPTR,A
+    208          }
+   \   000009   80..         SJMP    ?Subroutine25
+    209          /***************************************************************************************************
+    210           * @fn      WATER_SPIMgr_CalcFCS
+    211           *
+    212           * @brief
+    213           *
+    214           *   Calculate the FCS of a message buffer by XOR'ing each byte.
+    215           *   Remember to NOT include SOP and FCS fields, so start at the CMD
+    216           *   field.
+    217           *
+    218           * @param   byte *msg_ptr - message pointer
+    219           * @param   byte len - length (in bytes) of message
+    220           *
+    221           * @return  result byte
+    222           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    223          uint16 WATER_SPIMgr_CalcFCS( uint8 *msg_ptr, uint8 len )
+   \                     WATER_SPIMgr_CalcFCS:
+    224          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 2
+   \   000005   74FE         MOV     A,#-0x2
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+    225            uint16 crc,a001;
+    226            uint8 tempcrc[2];
+    227            crc=0xffff;
+   \   00000C   78FF         MOV     R0,#-0x1
+   \   00000E   79FF         MOV     R1,#-0x1
+    228            a001=0xA001;
+    229            int i,j;
+    230          
+    231            for(i=0;i<len;i++)
+   \   000010   7C00         MOV     R4,#0x0
+   \   000012   7D00         MOV     R5,#0x0
+   \   000014   8012         SJMP    ??WATER_SPIMgr_CalcFCS_0
+    232            {
+    233            	  tempcrc[0]=LO_UINT16(crc);
+    234          			tempcrc[1]=HI_UINT16(crc);
+    235          			tempcrc[0]=tempcrc[0]^msg_ptr[i];
+    236          			crc=BUILD_UINT16(tempcrc[0], tempcrc[1]);
+    237          			for(j=0;j<8;j++)
+    238          			{
+    239          					if((crc&0x0001)==1)
+    240          					{
+    241          	    			crc=(crc>>1)&0x7fff;
+    242          	    			crc=crc^a001;
+    243          					}
+    244          				else if((crc&0x0001)==0)
+    245          				crc=(crc>>1)&0x7fff; 
+   \                     ??WATER_SPIMgr_CalcFCS_1:
+   \   000016   C3           CLR     C
+   \   000017   13           RRC     A
+   \   000018   F9           MOV     R1,A
+   \   000019   E8           MOV     A,R0
+   \   00001A   13           RRC     A
+   \   00001B   F8           MOV     R0,A
+   \                     ??WATER_SPIMgr_CalcFCS_2:
+   \   00001C   1F           DEC     R7
+   \   00001D   EF           MOV     A,R7
+   \   00001E   703D         JNZ     ??WATER_SPIMgr_CalcFCS_3
+   \   000020   EC           MOV     A,R4
+   \   000021   2401         ADD     A,#0x1
+   \   000023   0C           INC     R4
+   \   000024   ED           MOV     A,R5
+   \   000025   3400         ADDC    A,#0x0
+   \   000027   FD           MOV     R5,A
+   \                     ??WATER_SPIMgr_CalcFCS_0:
+   \   000028   8E..         MOV     ?V0 + 0,R6
+   \   00002A   C3           CLR     C
+   \   00002B   EC           MOV     A,R4
+   \   00002C   95..         SUBB    A,?V0 + 0
+   \   00002E   ED           MOV     A,R5
+   \   00002F   9400         SUBB    A,#0x0
+   \   000031   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   000033   65D0         XRL     A,PSW
+   \   000035   33           RLC     A
+   \   000036   E8           MOV     A,R0
+   \   000037   85..82       MOV     DPL,?XSP + 0
+   \   00003A   85..83       MOV     DPH,?XSP + 1
+   \   00003D   F0           MOVX    @DPTR,A
+   \   00003E   5033         JNC     ??WATER_SPIMgr_CalcFCS_4
+   \   000040   7401         MOV     A,#0x1
+   \   000042   12....       LCALL   ?XSTACK_DISP0_8
+   \   000045   E9           MOV     A,R1
+   \   000046   F0           MOVX    @DPTR,A
+   \   000047   EA           MOV     A,R2
+   \   000048   2C           ADD     A,R4
+   \   000049   F582         MOV     DPL,A
+   \   00004B   EB           MOV     A,R3
+   \   00004C   3D           ADDC    A,R5
+   \   00004D   F583         MOV     DPH,A
+   \   00004F   E0           MOVX    A,@DPTR
+   \   000050   F8           MOV     R0,A
+   \   000051   85..82       MOV     DPL,?XSP + 0
+   \   000054   85..83       MOV     DPH,?XSP + 1
+   \   000057   E0           MOVX    A,@DPTR
+   \   000058   68           XRL     A,R0
+   \   000059   F0           MOVX    @DPTR,A
+   \   00005A   F8           MOV     R0,A
+   \   00005B   7F08         MOV     R7,#0x8
+   \                     ??WATER_SPIMgr_CalcFCS_3:
+   \   00005D   E8           MOV     A,R0
+   \   00005E   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000060   E9           MOV     A,R1
+   \   000061   50B3         JNC     ??WATER_SPIMgr_CalcFCS_1
+   \   000063   C3           CLR     C
+   \   000064   13           RRC     A
+   \   000065   F9           MOV     R1,A
+   \   000066   E8           MOV     A,R0
+   \   000067   13           RRC     A
+   \   000068   F8           MOV     R0,A
+   \   000069   7401         MOV     A,#0x1
+   \   00006B   68           XRL     A,R0
+   \   00006C   F8           MOV     R0,A
+   \   00006D   74A0         MOV     A,#-0x60
+   \   00006F   69           XRL     A,R1
+   \   000070   F9           MOV     R1,A
+   \   000071   80A9         SJMP    ??WATER_SPIMgr_CalcFCS_2
+    246          	}
+    247            }
+    248            tempcrc[0]=LO_UINT16(crc);
+    249          	tempcrc[1]=HI_UINT16(crc);
+   \                     ??WATER_SPIMgr_CalcFCS_4:
+   \   000073   E9           MOV     A,R1
+   \   000074   FF           MOV     R7,A
+   \   000075   7401         MOV     A,#0x1
+   \   000077   12....       LCALL   ?XSTACK_DISP0_8
+   \   00007A   E9           MOV     A,R1
+   \   00007B   12....       LCALL   ?Subroutine1 & 0xFFFF
+    250          	crc=BUILD_UINT16(tempcrc[1], tempcrc[0]);
+    251            return (crc);
+   \                     ??CrossCallReturnLabel_2:
+   \   00007E   F9           MOV     R1,A
+   \   00007F   EF           MOV     A,R7
+   \   000080   FA           MOV     R2,A
+   \   000081   E9           MOV     A,R1
+   \   000082   FB           MOV     R3,A
+   \   000083   7402         MOV     A,#0x2
+   \   000085   80..         SJMP    ??Subroutine26_0
+    252          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine26:
+   \   000000   7401         MOV     A,#0x1
+   \                     ??Subroutine26_0:
+   \   000002   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000005   7F02         MOV     R7,#0x2
+   \   000007   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   85..82       MOV     DPL,?XSP + 0
+   \   000004   85..83       MOV     DPH,?XSP + 1
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   22           RET
+    253          
+    254          /***************************************************************************************************
+    255           * @fn      WATER_SPIMgr_ProcessZToolRxData
+    256           *
+    257           * @brief   | SOP | CMD  |   Data Length   | FSC  |
+    258           *          |  1  |  2   |       1         |  1   |
+    259           *
+    260           *          Parses the data and determine either is SPI or just simply serial data
+    261           *          then send the data to correct place (MT or APP)
+    262           *
+    263           * @param   pBuffer  - pointer to the buffer that contains the data
+    264           *          length   - length of the buffer
+    265           *
+    266           *
+    267           * @return  None
+    268           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    269          void WATER_SPIMgr_ProcessZToolData ( uint8 port, uint8 event )
+   \                     WATER_SPIMgr_ProcessZToolData:
+    270          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    271            uint8  ch;
+    272           // uint8 t=0xAA;
+    273            //HalUARTWrite(1, &t,1);
+    274            
+    275            /* Verify events */
+    276            if (event == HAL_UART_TX_FULL)
+   \   00000A   7408         MOV     A,#0x8
+   \   00000C   6A           XRL     A,R2
+   \   00000D   6005         JZ      ??WATER_SPIMgr_ProcessZToolData_0
+    277            {
+    278              // Do something when TX if full
+    279              return;
+    280            }
+    281          
+    282            if (event & (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT))
+   \   00000F   7407         MOV     A,#0x7
+   \   000011   5A           ANL     A,R2
+   \   000012   702F         JNZ     ??WATER_SPIMgr_ProcessZToolData_1
+   \                     ??WATER_SPIMgr_ProcessZToolData_0:
+   \   000014   80..         SJMP    ?Subroutine26
+    283            {
+    284              while (Hal_UART_RxBufLen(WATER_UART))
+    285              {
+    286                HalUARTRead (WATER_UART, &ch, 1);
+    287               // HalUARTWrite(1, &ch,1);
+    288                switch (state1)
+    289                {
+    290                  case WATER_SOP:
+    291                    if (ch == STATION)
+    292                      state1 = WATER_CMD;
+    293                    break;
+    294          
+    295                  case WATER_CMD:
+    296                    if( ch == FUNC)
+    297                    state1 = WATER_LEN;
+    298                    break;
+    299          
+    300                /*  case CMD_STATE2:
+    301                    CMD_Token[1] = ch;
+    302                    state = LEN_STATE;
+    303                    break; */
+    304                  
+    305                  case WATER_LEN:
+    306                    LEN_Water = ch;
+    307                    if (ch == 0)
+    308                      state1 = WATER_FCS2;
+    309                    else
+    310                      state1 = WATER_DATA;
+    311          
+    312                    tempDataLen = 0;
+    313                  //  uint8 crclen=0;
+    314                    uint16 CRC;
+    315          
+    316                    /* Allocate memory for the data */
+    317                    WATER_SPI_Msg = (mtOSALSerialData_t *)osal_msg_allocate( sizeof ( mtOSALSerialData_t ) + 2+2+1+LEN_Token );
+    318          
+    319                    if (WATER_SPI_Msg)
+    320                    {
+    321                      /* Fill up what we can */
+    322                      WATER_SPI_Msg->hdr.event = CMD_SERIAL_MSG;
+   \                     ??WATER_SPIMgr_ProcessZToolData_2:
+   \   000016   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   000019   12....       LCALL   ?Subroutine12 & 0xFFFF
+    323                      WATER_SPI_Msg->msg = (uint8*)(WATER_SPI_Msg+1);
+   \                     ??CrossCallReturnLabel_29:
+   \   00001C   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   00001F   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_31:
+   \   000022   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   000025   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   000028   12....       LCALL   ?Subroutine0 & 0xFFFF
+    324          	    WATER_SPI_Msg->msg[0]=STATION;
+   \                     ??CrossCallReturnLabel_0:
+   \   00002B   7401         MOV     A,#0x1
+   \   00002D   12....       LCALL   ?Subroutine0 & 0xFFFF
+    325                      WATER_SPI_Msg->msg[1] = FUNC;
+   \                     ??CrossCallReturnLabel_1:
+   \   000030   A3           INC     DPTR
+   \   000031   7403         MOV     A,#0x3
+   \   000033   F0           MOVX    @DPTR,A
+    326                   //   SPI_Msg->msg[1] = CMD_Token[1];
+    327                      WATER_SPI_Msg->msg[2] = LEN_Water;
+   \   000034   90....       MOV     DPTR,#LEN_Water
+   \   000037   E0           MOVX    A,@DPTR
+   \   000038   C0E0         PUSH    A
+   \   00003A   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   00003D   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   000040   D0E0         POP     A
+   \                     ??WATER_SPIMgr_ProcessZToolData_3:
+   \   000042   F0           MOVX    @DPTR,A
+    328                    }
+   \                     ??WATER_SPIMgr_ProcessZToolData_1:
+   \   000043                ; Setup parameters for call to function Hal_UART_RxBufLen
+   \   000043   7901         MOV     R1,#0x1
+   \   000045   12....       LCALL   ??Hal_UART_RxBufLen?relay
+   \   000048   EA           MOV     A,R2
+   \   000049   7001         JNZ     ??WATER_SPIMgr_ProcessZToolData_4
+   \   00004B   EB           MOV     A,R3
+   \                     ??WATER_SPIMgr_ProcessZToolData_4:
+   \   00004C   60C6         JZ      ??WATER_SPIMgr_ProcessZToolData_0
+   \   00004E                ; Setup parameters for call to function HalUARTRead
+   \   00004E   7C01         MOV     R4,#0x1
+   \   000050   7D00         MOV     R5,#0x0
+   \   000052   85..82       MOV     DPL,?XSP + 0
+   \   000055   85..83       MOV     DPH,?XSP + 1
+   \   000058   AA82         MOV     R2,DPL
+   \   00005A   AB83         MOV     R3,DPH
+   \   00005C   7901         MOV     R1,#0x1
+   \   00005E   12....       LCALL   ??HalUARTRead?relay
+   \   000061   90....       MOV     DPTR,#state1
+   \   000064   E0           MOVX    A,@DPTR
+   \   000065   12....       LCALL   ?UC_SWITCH_DENSE
+   \                     `?<Jumptable for WATER_SPIMgr_ProcessZToolData>_0`:
+   \   000068   00           DB        0
+   \   000069   06           DB        6
+   \   00006A   ....         DW        ??WATER_SPIMgr_ProcessZToolData_1
+   \   00006C   ....         DW        ??WATER_SPIMgr_ProcessZToolData_5
+   \   00006E   ....         DW        ??WATER_SPIMgr_ProcessZToolData_6
+   \   000070   ....         DW        ??WATER_SPIMgr_ProcessZToolData_1
+   \   000072   ....         DW        ??WATER_SPIMgr_ProcessZToolData_7
+   \   000074   ....         DW        ??WATER_SPIMgr_ProcessZToolData_8
+   \   000076   ....         DW        ??WATER_SPIMgr_ProcessZToolData_9
+   \   000078   ....         DW        ??WATER_SPIMgr_ProcessZToolData_10
+   \                     ??WATER_SPIMgr_ProcessZToolData_5:
+   \   00007A   85..82       MOV     DPL,?XSP + 0
+   \   00007D   85..83       MOV     DPH,?XSP + 1
+   \   000080   E0           MOVX    A,@DPTR
+   \   000081   6401         XRL     A,#0x1
+   \   000083   70BE         JNZ     ??WATER_SPIMgr_ProcessZToolData_1
+   \   000085   7401         MOV     A,#0x1
+   \                     ??WATER_SPIMgr_ProcessZToolData_11:
+   \   000087   90....       MOV     DPTR,#state1
+   \   00008A   80B6         SJMP    ??WATER_SPIMgr_ProcessZToolData_3
+   \                     ??WATER_SPIMgr_ProcessZToolData_6:
+   \   00008C   85..82       MOV     DPL,?XSP + 0
+   \   00008F   85..83       MOV     DPH,?XSP + 1
+   \   000092   E0           MOVX    A,@DPTR
+   \   000093   6403         XRL     A,#0x3
+   \   000095   70AC         JNZ     ??WATER_SPIMgr_ProcessZToolData_1
+   \   000097   7403         MOV     A,#0x3
+   \   000099   80EC         SJMP    ??WATER_SPIMgr_ProcessZToolData_11
+   \                     ??WATER_SPIMgr_ProcessZToolData_7:
+   \   00009B   85..82       MOV     DPL,?XSP + 0
+   \   00009E   85..83       MOV     DPH,?XSP + 1
+   \   0000A1   E0           MOVX    A,@DPTR
+   \   0000A2   90....       MOV     DPTR,#LEN_Water
+   \   0000A5   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000A8   7004         JNZ     ??WATER_SPIMgr_ProcessZToolData_12
+   \   0000AA   7406         MOV     A,#0x6
+   \   0000AC   8002         SJMP    ??WATER_SPIMgr_ProcessZToolData_13
+   \                     ??WATER_SPIMgr_ProcessZToolData_12:
+   \   0000AE   7404         MOV     A,#0x4
+   \                     ??WATER_SPIMgr_ProcessZToolData_13:
+   \   0000B0   90....       MOV     DPTR,#state1
+   \   0000B3   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000B6   7409         MOV     A,#0x9
+   \   0000B8   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   0000BB   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   0000BE   EA           MOV     A,R2
+   \   0000BF   F0           MOVX    @DPTR,A
+   \   0000C0   A3           INC     DPTR
+   \   0000C1   EB           MOV     A,R3
+   \   0000C2   F0           MOVX    @DPTR,A
+   \   0000C3   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   0000C6   E0           MOVX    A,@DPTR
+   \   0000C7   7002         JNZ     ??WATER_SPIMgr_ProcessZToolData_14
+   \   0000C9   A3           INC     DPTR
+   \   0000CA   E0           MOVX    A,@DPTR
+   \                     ??WATER_SPIMgr_ProcessZToolData_14:
+   \   0000CB   6003         JZ      $+5
+   \   0000CD   02....       LJMP    ??WATER_SPIMgr_ProcessZToolData_2 & 0xFFFF
+    329                    else
+    330                    {
+    331                      state1 = SOP_STATE;
+   \   0000D0   E4           CLR     A
+   \   0000D1   90....       MOV     DPTR,#state1
+   \   0000D4   F0           MOVX    @DPTR,A
+    332                      return;
+   \   0000D5   02....       LJMP    ??WATER_SPIMgr_ProcessZToolData_0 & 0xFFFF
+    333                    }
+    334          
+    335                    break;
+    336          
+    337                  case WATER_DATA:
+    338                      WATER_SPI_Msg->msg[3 + tempDataLen++] = ch;
+   \                     ??WATER_SPIMgr_ProcessZToolData_8:
+   \   0000D8   85..82       MOV     DPL,?XSP + 0
+   \   0000DB   85..83       MOV     DPH,?XSP + 1
+   \   0000DE   E0           MOVX    A,@DPTR
+   \   0000DF   C0E0         PUSH    A
+   \   0000E1   90....       MOV     DPTR,#tempDataLen
+   \   0000E4   E0           MOVX    A,@DPTR
+   \   0000E5   F8           MOV     R0,A
+   \   0000E6   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   0000E9   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   0000EC   D0E0         POP     A
+   \   0000EE   12....       LCALL   ?Subroutine5 & 0xFFFF
+    339                      if ( tempDataLen == LEN_Water )
+   \                     ??CrossCallReturnLabel_15:
+   \   0000F1   90....       MOV     DPTR,#LEN_Water
+   \   0000F4   E0           MOVX    A,@DPTR
+   \   0000F5   6A           XRL     A,R2
+   \   0000F6   6003         JZ      $+5
+   \   0000F8   02....       LJMP    ??WATER_SPIMgr_ProcessZToolData_1 & 0xFFFF
+    340                        state1 = WATER_FCS1;
+   \   0000FB   7405         MOV     A,#0x5
+   \   0000FD   8088         SJMP    ??WATER_SPIMgr_ProcessZToolData_11
+    341                    break;
+    342          
+    343                  case WATER_FCS1:
+    344                    FCS_Water[0]=ch;
+   \                     ??WATER_SPIMgr_ProcessZToolData_9:
+   \   0000FF   85..82       MOV     DPL,?XSP + 0
+   \   000102   85..83       MOV     DPH,?XSP + 1
+   \   000105   E0           MOVX    A,@DPTR
+   \   000106   90....       MOV     DPTR,#FCS_Water
+   \   000109   F0           MOVX    @DPTR,A
+    345          		  state1=WATER_FCS2;
+   \   00010A   7406         MOV     A,#0x6
+   \   00010C   02....       LJMP    ??WATER_SPIMgr_ProcessZToolData_11 & 0xFFFF
+    346          	 break;
+    347          
+    348          	 case WATER_FCS2:
+    349          	 	FCS_Water[1]= ch;
+   \                     ??WATER_SPIMgr_ProcessZToolData_10:
+   \   00010F   85..82       MOV     DPL,?XSP + 0
+   \   000112   85..83       MOV     DPH,?XSP + 1
+   \   000115   E0           MOVX    A,@DPTR
+   \   000116   90....       MOV     DPTR,#(FCS_Water + 1)
+   \   000119   F0           MOVX    @DPTR,A
+    350          		  state1=WATER_FCS1;
+   \   00011A   7405         MOV     A,#0x5
+   \   00011C   90....       MOV     DPTR,#state1
+   \   00011F   F0           MOVX    @DPTR,A
+    351          		  CRC=BUILD_UINT16(FCS_Water[1],FCS_Water[0]);
+    352          	 	
+    353                    /* Make sure it's correct */
+    354                    if ((WATER_SPIMgr_CalcFCS ((uint8*)&WATER_SPI_Msg->msg[0], 2 + 1 +LEN_Water) == CRC))
+   \   000120                ; Setup parameters for call to function WATER_SPIMgr_CalcFCS
+   \   000120   90....       MOV     DPTR,#LEN_Water
+   \   000123   E0           MOVX    A,@DPTR
+   \   000124   2403         ADD     A,#0x3
+   \   000126   F9           MOV     R1,A
+   \   000127   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   00012A   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   00012D   12....       LCALL   ??WATER_SPIMgr_CalcFCS?relay
+   \   000130   90....       MOV     DPTR,#(FCS_Water + 1)
+   \   000133   E0           MOVX    A,@DPTR
+   \   000134   FC           MOV     R4,A
+   \   000135   90....       MOV     DPTR,#FCS_Water
+   \   000138   E0           MOVX    A,@DPTR
+   \   000139   F9           MOV     R1,A
+   \   00013A   EC           MOV     A,R4
+   \   00013B   6A           XRL     A,R2
+   \   00013C   7002         JNZ     ??WATER_SPIMgr_ProcessZToolData_15
+   \   00013E   E9           MOV     A,R1
+   \   00013F   6B           XRL     A,R3
+   \                     ??WATER_SPIMgr_ProcessZToolData_15:
+   \   000140   702F         JNZ     ??WATER_SPIMgr_ProcessZToolData_16
+    355                    {
+    356                      if(App_TaskID!=0 && WATER_SPI_Msg->msg[0]==0x01 && WATER_SPI_Msg->msg[1]==0x03)
+   \   000142   90....       MOV     DPTR,#App_TaskID
+   \   000145   E0           MOVX    A,@DPTR
+   \   000146   6021         JZ      ??WATER_SPIMgr_ProcessZToolData_17
+   \   000148   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   00014B   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   00014E   6401         XRL     A,#0x1
+   \   000150   7017         JNZ     ??WATER_SPIMgr_ProcessZToolData_17
+   \   000152   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   000155   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   000158   6403         XRL     A,#0x3
+   \   00015A   700D         JNZ     ??WATER_SPIMgr_ProcessZToolData_17
+    357                      {
+    358                        osal_msg_send( App_TaskID, (byte *)WATER_SPI_Msg );
+   \   00015C                ; Setup parameters for call to function osal_msg_send
+   \   00015C   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   00015F   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   000162   E0           MOVX    A,@DPTR
+   \   000163   F9           MOV     R1,A
+   \   000164   12....       LCALL   ??osal_msg_send?relay
+   \   000167   800E         SJMP    ??CrossCallReturnLabel_33
+    359                      }
+    360                      else
+    361                      {
+    362                        osal_msg_send( MT_TaskID, (byte *)WATER_SPI_Msg );
+   \                     ??WATER_SPIMgr_ProcessZToolData_17:
+   \   000169                ; Setup parameters for call to function osal_msg_send
+   \   000169   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   00016C   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   00016F   80F1         SJMP    ??CrossCallReturnLabel_35
+    363                      }
+    364                    }
+    365                    else
+    366                    {
+    367                      /* deallocate the msg */
+    368                      osal_msg_deallocate ( (uint8 *)WATER_SPI_Msg);
+   \                     ??WATER_SPIMgr_ProcessZToolData_16:
+   \   000171                ; Setup parameters for call to function osal_msg_deallocate
+   \   000171   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   000174   12....       LCALL   ?Subroutine14 & 0xFFFF
+    369                    }
+    370          
+    371                    /* Reset the state, send or discard the buffers at this point */
+    372                    state1 = WATER_SOP;
+   \                     ??CrossCallReturnLabel_33:
+   \   000177   E4           CLR     A
+   \   000178   02....       LJMP    ??WATER_SPIMgr_ProcessZToolData_11 & 0xFFFF
+    373          
+    374                    break;
+    375          
+    376                  default:
+    377                   break;
+    378                  } 
+    379              }
+    380            }
+    381          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   90....       MOV     DPTR,#WATER_SPI_Msg
+   \   000004   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_43:
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine17:
+   \   000000   28           ADD     A,R0
+   \   000001   FA           MOV     R2,A
+   \   000002   E4           CLR     A
+   \   000003   3400         ADDC    A,#0x0
+   \   000005   FB           MOV     R3,A
+   \   000006   12....       LCALL   ??osal_msg_allocate?relay
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine16:
+   \   000000   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_51:
+   \   000003   90....       MOV     DPTR,#MT_TaskID
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine15:
+   \   000000   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_50:
+   \   000003   90....       MOV     DPTR,#App_TaskID
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine14:
+   \   000000   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_49:
+   \   000003   12....       LCALL   ??osal_msg_deallocate?relay
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   2404         ADD     A,#0x4
+   \   000003   F8           MOV     R0,A
+   \   000004   A3           INC     DPTR
+   \   000005   E0           MOVX    A,@DPTR
+   \   000006   3400         ADDC    A,#0x0
+   \   000008   F9           MOV     R1,A
+   \   000009   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_53:
+   \   000003   7401         MOV     A,#0x1
+   \   000005   F0           MOVX    @DPTR,A
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_47:
+   \   000003   E8           MOV     A,R0
+   \   000004   F0           MOVX    @DPTR,A
+   \   000005   A3           INC     DPTR
+   \   000006   E9           MOV     A,R1
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   12....       LCALL   ?Subroutine22 & 0xFFFF
+   \                     ??CrossCallReturnLabel_52:
+   \   000003   A3           INC     DPTR
+   \   000004   A3           INC     DPTR
+   \   000005   12....       LCALL   ?Subroutine21 & 0xFFFF
+   \                     ??CrossCallReturnLabel_48:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine22:
+   \   000000   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_56:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine21:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine19:
+   \   000000   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_55:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine23:
+   \   000000   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_57:
+   \   000003   A3           INC     DPTR
+   \   000004   A3           INC     DPTR
+   \   000005   12....       LCALL   ?Subroutine24 & 0xFFFF
+   \                     ??CrossCallReturnLabel_58:
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine24:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_44:
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_42:
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ?Subroutine18 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   000003   A3           INC     DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine18:
+   \   000000   12....       LCALL   ?Subroutine23 & 0xFFFF
+   \                     ??CrossCallReturnLabel_54:
+   \   000003   A3           INC     DPTR
+   \   000004   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   90....       MOV     DPTR,#tempDataLen
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   04           INC     A
+   \   000006   F0           MOVX    @DPTR,A
+   \   000007   FA           MOV     R2,A
+   \   000008   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   12....       LCALL   ?Subroutine20 & 0xFFFF
+   \                     ??CrossCallReturnLabel_46:
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   28           ADD     A,R0
+   \   000005   FA           MOV     R2,A
+   \   000006   A3           INC     DPTR
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   3400         ADDC    A,#0x0
+   \   00000A   8A82         MOV     DPL,R2
+   \   00000C   F583         MOV     DPH,A
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   A3           INC     DPTR
+   \   000011   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine20:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8A82         MOV     DPL,R2
+   \   000008   A3           INC     DPTR
+   \   000009   A3           INC     DPTR
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   E4           CLR     A
+   \   000002   90....       MOV     DPTR,#tempDataLen
+   \   000005   F0           MOVX    @DPTR,A
+   \   000006                ; Setup parameters for call to function osal_msg_allocate
+   \   000006                ; Setup parameters for call to function osal_msg_allocate
+   \   000006   90....       MOV     DPTR,#LEN_Token
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   F8           MOV     R0,A
+   \   00000B   22           RET
+    382           
+    383          /***************************************************************************************************
+    384           * @fn      SPIMgr_CalcFCS
+    385           *
+    386           * @brief
+    387           *
+    388           *   Calculate the FCS of a message buffer by XOR'ing each byte.
+    389           *   Remember to NOT include SOP and FCS fields, so start at the CMD
+    390           *   field.
+    391           *
+    392           * @param   byte *msg_ptr - message pointer
+    393           * @param   byte len - length (in bytes) of message
+    394           *
+    395           * @return  result byte
+    396           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    397          byte SPIMgr_CalcFCS( uint8 *msg_ptr, uint8 len )
+   \                     SPIMgr_CalcFCS:
+    398          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FC           MOV     R4,A
+    399            byte x;
+    400            byte xorResult;
+    401          
+    402            xorResult = 0;
+   \   000007   7900         MOV     R1,#0x0
+    403          
+    404            for ( x = 0; x < len; x++, msg_ptr++ )
+   \   000009   7D00         MOV     R5,#0x0
+   \   00000B   800E         SJMP    ??SPIMgr_CalcFCS_0
+    405              xorResult = xorResult ^ *msg_ptr;
+   \                     ??SPIMgr_CalcFCS_1:
+   \   00000D   8A82         MOV     DPL,R2
+   \   00000F   8B83         MOV     DPH,R3
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   C9           XCH     A,R1
+   \   000013   69           XRL     A,R1
+   \   000014   F9           MOV     R1,A
+   \   000015   0D           INC     R5
+   \   000016   A3           INC     DPTR
+   \   000017   AA82         MOV     R2,DPL
+   \   000019   AB83         MOV     R3,DPH
+   \                     ??SPIMgr_CalcFCS_0:
+   \   00001B   ED           MOV     A,R5
+   \   00001C   C3           CLR     C
+   \   00001D   9C           SUBB    A,R4
+   \   00001E   40ED         JC      ??SPIMgr_CalcFCS_1
+    406          
+    407            return ( xorResult );
+   \   000020   7F01         MOV     R7,#0x1
+   \   000022   02....       LJMP    ?BANKED_LEAVE_XDATA
+    408          }
+    409          
+    410          
+    411          #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+    412          /***************************************************************************************************
+    413           * @fn      SPIMgr_ProcessZToolRxData
+    414           *
+    415           * @brief   | SOP | CMD  |   Data Length   | FSC  |
+    416           *          |  1  |  2   |       1         |  1   |
+    417           *
+    418           *          Parses the data and determine either is SPI or just simply serial data
+    419           *          then send the data to correct place (MT or APP)
+    420           *
+    421           * @param   pBuffer  - pointer to the buffer that contains the data
+    422           *          length   - length of the buffer
+    423           *
+    424           *
+    425           * @return  None
+    426           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    427          void SPIMgr_ProcessZToolData ( uint8 port, uint8 event )
+   \                     SPIMgr_ProcessZToolData:
+    428          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    429          
+    430            uint8  ch;
+    431          
+    432            /* Verify events */
+    433            if (event == HAL_UART_TX_FULL)
+   \   00000A   7408         MOV     A,#0x8
+   \   00000C   6A           XRL     A,R2
+   \   00000D   6005         JZ      ??SPIMgr_ProcessZToolData_0
+    434            {
+    435              // Do something when TX if full
+    436              return;
+    437            }
+    438          
+    439            if (event & (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT))
+   \   00000F   7407         MOV     A,#0x7
+   \   000011   5A           ANL     A,R2
+   \   000012   7014         JNZ     ??SPIMgr_ProcessZToolData_1
+   \                     ??SPIMgr_ProcessZToolData_0:
+   \   000014   02....       LJMP    ?Subroutine26 & 0xFFFF
+    440            {
+    441              while (Hal_UART_RxBufLen(0))
+    442              {
+    443                HalUARTRead (0, &ch, 1);
+    444               // HalUARTWrite(0, &ch,1);
+    445                switch (state)
+    446                {
+    447                  case SOP_STATE:
+    448                    if (ch == SOP_VALUE)
+    449                      state = CMD_STATE1;
+    450                    break;
+    451          
+    452                  case CMD_STATE1:
+    453                    CMD_Token[0] = ch;
+   \                     ??SPIMgr_ProcessZToolData_2:
+   \   000017   85..82       MOV     DPL,?XSP + 0
+   \   00001A   85..83       MOV     DPH,?XSP + 1
+   \   00001D   E0           MOVX    A,@DPTR
+   \   00001E   90....       MOV     DPTR,#CMD_Token
+   \   000021   F0           MOVX    @DPTR,A
+    454                    state = CMD_STATE2;
+   \   000022   7402         MOV     A,#0x2
+   \                     ??SPIMgr_ProcessZToolData_3:
+   \   000024   90....       MOV     DPTR,#state
+   \                     ??SPIMgr_ProcessZToolData_4:
+   \   000027   F0           MOVX    @DPTR,A
+   \                     ??SPIMgr_ProcessZToolData_1:
+   \   000028                ; Setup parameters for call to function Hal_UART_RxBufLen
+   \   000028   7900         MOV     R1,#0x0
+   \   00002A   12....       LCALL   ??Hal_UART_RxBufLen?relay
+   \   00002D   EA           MOV     A,R2
+   \   00002E   7001         JNZ     ??SPIMgr_ProcessZToolData_5
+   \   000030   EB           MOV     A,R3
+   \                     ??SPIMgr_ProcessZToolData_5:
+   \   000031   60E1         JZ      ??SPIMgr_ProcessZToolData_0
+   \   000033                ; Setup parameters for call to function HalUARTRead
+   \   000033   7C01         MOV     R4,#0x1
+   \   000035   7D00         MOV     R5,#0x0
+   \   000037   85..82       MOV     DPL,?XSP + 0
+   \   00003A   85..83       MOV     DPH,?XSP + 1
+   \   00003D   AA82         MOV     R2,DPL
+   \   00003F   AB83         MOV     R3,DPH
+   \   000041   7900         MOV     R1,#0x0
+   \   000043   12....       LCALL   ??HalUARTRead?relay
+   \   000046   90....       MOV     DPTR,#state
+   \   000049   E0           MOVX    A,@DPTR
+   \   00004A   12....       LCALL   ?UC_SWITCH_DENSE
+   \                     `?<Jumptable for SPIMgr_ProcessZToolData>_0`:
+   \   00004D   00           DB        0
+   \   00004E   05           DB        5
+   \   00004F   ....         DW        ??SPIMgr_ProcessZToolData_1
+   \   000051   ....         DW        ??SPIMgr_ProcessZToolData_6
+   \   000053   ....         DW        ??SPIMgr_ProcessZToolData_2
+   \   000055   ....         DW        ??SPIMgr_ProcessZToolData_7
+   \   000057   ....         DW        ??SPIMgr_ProcessZToolData_8
+   \   000059   ....         DW        ??SPIMgr_ProcessZToolData_9
+   \   00005B   ....         DW        ??SPIMgr_ProcessZToolData_10
+   \                     ??SPIMgr_ProcessZToolData_6:
+   \   00005D   85..82       MOV     DPL,?XSP + 0
+   \   000060   85..83       MOV     DPH,?XSP + 1
+   \   000063   E0           MOVX    A,@DPTR
+   \   000064   6402         XRL     A,#0x2
+   \   000066   70C0         JNZ     ??SPIMgr_ProcessZToolData_1
+   \   000068   7401         MOV     A,#0x1
+   \   00006A   80B8         SJMP    ??SPIMgr_ProcessZToolData_3
+    455                    break;
+    456          
+    457                  case CMD_STATE2:
+    458                    CMD_Token[1] = ch;
+   \                     ??SPIMgr_ProcessZToolData_7:
+   \   00006C   85..82       MOV     DPL,?XSP + 0
+   \   00006F   85..83       MOV     DPH,?XSP + 1
+   \   000072   E0           MOVX    A,@DPTR
+   \   000073   90....       MOV     DPTR,#(CMD_Token + 1)
+   \   000076   F0           MOVX    @DPTR,A
+    459                    state = LEN_STATE;
+   \   000077   7403         MOV     A,#0x3
+   \   000079   80A9         SJMP    ??SPIMgr_ProcessZToolData_3
+    460                    break;
+    461          
+    462                  case LEN_STATE:
+    463                    LEN_Token = ch;
+   \                     ??SPIMgr_ProcessZToolData_8:
+   \   00007B   85..82       MOV     DPL,?XSP + 0
+   \   00007E   85..83       MOV     DPH,?XSP + 1
+   \   000081   E0           MOVX    A,@DPTR
+   \   000082   90....       MOV     DPTR,#LEN_Token
+   \   000085   12....       LCALL   ?Subroutine1 & 0xFFFF
+    464                    if (ch == 0)
+   \                     ??CrossCallReturnLabel_4:
+   \   000088   7004         JNZ     ??SPIMgr_ProcessZToolData_11
+    465                      state = FCS_STATE;
+   \   00008A   7405         MOV     A,#0x5
+   \   00008C   8002         SJMP    ??SPIMgr_ProcessZToolData_12
+    466                    else
+    467                      state = DATA_STATE;
+   \                     ??SPIMgr_ProcessZToolData_11:
+   \   00008E   7404         MOV     A,#0x4
+   \                     ??SPIMgr_ProcessZToolData_12:
+   \   000090   90....       MOV     DPTR,#state
+   \   000093   12....       LCALL   ?Subroutine2 & 0xFFFF
+    468          
+    469                    tempDataLen = 0;
+    470          
+    471                    /* Allocate memory for the data */
+    472                    SPI_Msg = (mtOSALSerialData_t *)osal_msg_allocate( sizeof ( mtOSALSerialData_t ) + 2+1+LEN_Token );
+   \                     ??CrossCallReturnLabel_6:
+   \   000096   7407         MOV     A,#0x7
+   \   000098   12....       LCALL   ?Subroutine17 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   00009B   90....       MOV     DPTR,#SPI_Msg
+   \   00009E   EA           MOV     A,R2
+   \   00009F   F0           MOVX    @DPTR,A
+   \   0000A0   A3           INC     DPTR
+   \   0000A1   EB           MOV     A,R3
+   \   0000A2   F0           MOVX    @DPTR,A
+    473          
+    474                    if (SPI_Msg)
+   \   0000A3   90....       MOV     DPTR,#SPI_Msg
+   \   0000A6   E0           MOVX    A,@DPTR
+   \   0000A7   7002         JNZ     ??SPIMgr_ProcessZToolData_13
+   \   0000A9   A3           INC     DPTR
+   \   0000AA   E0           MOVX    A,@DPTR
+   \                     ??SPIMgr_ProcessZToolData_13:
+   \   0000AB   603D         JZ      ??SPIMgr_ProcessZToolData_14
+    475                    {
+    476                      /* Fill up what we can */
+    477                      SPI_Msg->hdr.event = CMD_SERIAL_MSG;
+   \   0000AD   90....       MOV     DPTR,#SPI_Msg
+   \   0000B0   12....       LCALL   ?Subroutine12 & 0xFFFF
+    478                      SPI_Msg->msg = (uint8*)(SPI_Msg+1);
+   \                     ??CrossCallReturnLabel_30:
+   \   0000B3   90....       MOV     DPTR,#SPI_Msg
+   \   0000B6   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   0000B9   90....       MOV     DPTR,#SPI_Msg
+   \   0000BC   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_28:
+   \   0000BF   F0           MOVX    @DPTR,A
+    479                      SPI_Msg->msg[0] = CMD_Token[0];
+   \   0000C0   90....       MOV     DPTR,#CMD_Token
+   \   0000C3   E0           MOVX    A,@DPTR
+   \   0000C4   C0E0         PUSH    A
+   \   0000C6   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   0000C9   D0E0         POP     A
+   \   0000CB   F0           MOVX    @DPTR,A
+    480                      SPI_Msg->msg[1] = CMD_Token[1];
+   \   0000CC   90....       MOV     DPTR,#(CMD_Token + 1)
+   \   0000CF   E0           MOVX    A,@DPTR
+   \   0000D0   C0E0         PUSH    A
+   \   0000D2   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   0000D5   A3           INC     DPTR
+   \   0000D6   D0E0         POP     A
+   \   0000D8   F0           MOVX    @DPTR,A
+    481                      SPI_Msg->msg[2] = LEN_Token;
+   \   0000D9   90....       MOV     DPTR,#LEN_Token
+   \   0000DC   E0           MOVX    A,@DPTR
+   \   0000DD   C0E0         PUSH    A
+   \   0000DF   90....       MOV     DPTR,#SPI_Msg
+   \   0000E2   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   0000E5   D0E0         POP     A
+   \   0000E7   02....       LJMP    ??SPIMgr_ProcessZToolData_4 & 0xFFFF
+    482                    }
+    483                    else
+    484                    {
+    485                      state = SOP_STATE;
+   \                     ??SPIMgr_ProcessZToolData_14:
+   \   0000EA   E4           CLR     A
+   \   0000EB   90....       MOV     DPTR,#state
+   \   0000EE   F0           MOVX    @DPTR,A
+    486                      return;
+   \   0000EF   02....       LJMP    ??SPIMgr_ProcessZToolData_0 & 0xFFFF
+    487                    }
+    488          
+    489                    break;
+    490          
+    491                  case DATA_STATE:
+    492                      SPI_Msg->msg[3 + tempDataLen++] = ch;
+   \                     ??SPIMgr_ProcessZToolData_9:
+   \   0000F2   85..82       MOV     DPL,?XSP + 0
+   \   0000F5   85..83       MOV     DPH,?XSP + 1
+   \   0000F8   E0           MOVX    A,@DPTR
+   \   0000F9   C0E0         PUSH    A
+   \   0000FB   90....       MOV     DPTR,#tempDataLen
+   \   0000FE   E0           MOVX    A,@DPTR
+   \   0000FF   F8           MOV     R0,A
+   \   000100   90....       MOV     DPTR,#SPI_Msg
+   \   000103   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000106   D0E0         POP     A
+   \   000108   12....       LCALL   ?Subroutine5 & 0xFFFF
+    493                      if ( tempDataLen == LEN_Token )
+   \                     ??CrossCallReturnLabel_16:
+   \   00010B   90....       MOV     DPTR,#LEN_Token
+   \   00010E   E0           MOVX    A,@DPTR
+   \   00010F   6A           XRL     A,R2
+   \   000110   6003         JZ      $+5
+   \   000112   02....       LJMP    ??SPIMgr_ProcessZToolData_1 & 0xFFFF
+    494                        state = FCS_STATE;
+   \   000115   7405         MOV     A,#0x5
+   \   000117   02....       LJMP    ??SPIMgr_ProcessZToolData_3 & 0xFFFF
+    495                    break;
+    496          
+    497                  case FCS_STATE:
+    498          
+    499                    FSC_Token = ch;
+   \                     ??SPIMgr_ProcessZToolData_10:
+   \   00011A   85..82       MOV     DPL,?XSP + 0
+   \   00011D   85..83       MOV     DPH,?XSP + 1
+   \   000120   E0           MOVX    A,@DPTR
+   \   000121   90....       MOV     DPTR,#FSC_Token
+   \   000124   F0           MOVX    @DPTR,A
+    500          
+    501                    /* Make sure it's correct */
+    502                    if ((SPIMgr_CalcFCS ((uint8*)&SPI_Msg->msg[0], 2 + 1 + LEN_Token) == FSC_Token))
+   \   000125                ; Setup parameters for call to function SPIMgr_CalcFCS
+   \   000125   90....       MOV     DPTR,#LEN_Token
+   \   000128   E0           MOVX    A,@DPTR
+   \   000129   2403         ADD     A,#0x3
+   \   00012B   F9           MOV     R1,A
+   \   00012C   90....       MOV     DPTR,#SPI_Msg
+   \   00012F   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   000132   12....       LCALL   ??SPIMgr_CalcFCS?relay
+   \   000135   E9           MOV     A,R1
+   \   000136   FA           MOV     R2,A
+   \   000137   90....       MOV     DPTR,#FSC_Token
+   \   00013A   E0           MOVX    A,@DPTR
+   \   00013B   6A           XRL     A,R2
+   \   00013C   702F         JNZ     ??SPIMgr_ProcessZToolData_15
+    503                    {
+    504                      if(App_TaskID!=0 && SPI_Msg->msg[0]==0xAA && SPI_Msg->msg[1]==0x55)
+   \   00013E   90....       MOV     DPTR,#App_TaskID
+   \   000141   E0           MOVX    A,@DPTR
+   \   000142   6021         JZ      ??SPIMgr_ProcessZToolData_16
+   \   000144   90....       MOV     DPTR,#SPI_Msg
+   \   000147   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   00014A   64AA         XRL     A,#0xaa
+   \   00014C   7017         JNZ     ??SPIMgr_ProcessZToolData_16
+   \   00014E   90....       MOV     DPTR,#SPI_Msg
+   \   000151   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000154   6455         XRL     A,#0x55
+   \   000156   700D         JNZ     ??SPIMgr_ProcessZToolData_16
+    505                      {
+    506                        osal_msg_send( App_TaskID, (byte *)SPI_Msg );
+   \   000158                ; Setup parameters for call to function osal_msg_send
+   \   000158   90....       MOV     DPTR,#SPI_Msg
+   \   00015B   12....       LCALL   ?Subroutine15 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   00015E   E0           MOVX    A,@DPTR
+   \   00015F   F9           MOV     R1,A
+   \   000160   12....       LCALL   ??osal_msg_send?relay
+   \   000163   800E         SJMP    ??CrossCallReturnLabel_34
+    507                        //uint8 t=0xFF;
+    508                       // HalUARTWrite(0,&t,1);
+    509                      }
+    510                      else
+    511                      {
+    512                        osal_msg_send( MT_TaskID, (byte *)SPI_Msg );
+   \                     ??SPIMgr_ProcessZToolData_16:
+   \   000165                ; Setup parameters for call to function osal_msg_send
+   \   000165   90....       MOV     DPTR,#SPI_Msg
+   \   000168   12....       LCALL   ?Subroutine16 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   00016B   80F1         SJMP    ??CrossCallReturnLabel_36
+    513                      }
+    514                    }
+    515                    else
+    516                    {
+    517                      /* deallocate the msg */
+    518                      osal_msg_deallocate ( (uint8 *)SPI_Msg);
+   \                     ??SPIMgr_ProcessZToolData_15:
+   \   00016D                ; Setup parameters for call to function osal_msg_deallocate
+   \   00016D   90....       MOV     DPTR,#SPI_Msg
+   \   000170   12....       LCALL   ?Subroutine14 & 0xFFFF
+    519                    }
+    520          
+    521                    /* Reset the state, send or discard the buffers at this point */
+    522                    state = SOP_STATE;
+   \                     ??CrossCallReturnLabel_34:
+   \   000173   E4           CLR     A
+   \   000174   02....       LJMP    ??SPIMgr_ProcessZToolData_3 & 0xFFFF
+    523          
+    524                    break;
+    525          
+    526                  default:
+    527                   break;
+    528                }
+    529          
+    530          
+    531              }
+    532            }
+    533          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   90....       MOV     DPTR,#SPI_Msg
+   \   000003   12....       LCALL   ?Subroutine19 & 0xFFFF
+   \                     ??CrossCallReturnLabel_45:
+   \   000006   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPIMgr_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPIMgr_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPIMgr_RegisterTaskID?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPIMgr_RegisterTaskID
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??WATER_SPIMgr_CalcFCS?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    WATER_SPIMgr_CalcFCS
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??WATER_SPIMgr_ProcessZToolData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    WATER_SPIMgr_ProcessZToolData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPIMgr_CalcFCS?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPIMgr_CalcFCS
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??SPIMgr_ProcessZToolData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    SPIMgr_ProcessZToolData
+    534          #endif //ZTOOL
+    535          
+    536          #if defined (ZAPP_P1) || defined (ZAPP_P2)
+    537          /***************************************************************************************************
+    538           * @fn      SPIMgr_ProcessZAppRxData
+    539           *
+    540           * @brief   | SOP | CMD  |   Data Length   | FSC  |
+    541           *          |  1  |  2   |       1         |  1   |
+    542           *
+    543           *          Parses the data and determine either is SPI or just simply serial data
+    544           *          then send the data to correct place (MT or APP)
+    545           *
+    546           * @param   pBuffer  - pointer to the buffer that contains the data
+    547           *          length   - length of the buffer
+    548           *
+    549           *
+    550           * @return  None
+    551           ***************************************************************************************************/
+    552          void SPIMgr_ProcessZAppData ( uint8 port, uint8 event )
+    553          {
+    554          
+    555            osal_event_hdr_t  *msg_ptr;
+    556            uint16 length = 0;
+    557            uint16 rxBufLen  = Hal_UART_RxBufLen(SPI_MGR_DEFAULT_PORT);
+    558          
+    559            /*
+    560               If maxZAppBufferLength is 0 or larger than current length
+    561               the entire length of the current buffer is returned.
+    562            */
+    563            if ((SPIMgr_MaxZAppBufLen != 0) && (SPIMgr_MaxZAppBufLen <= rxBufLen))
+    564            {
+    565              length = SPIMgr_MaxZAppBufLen;
+    566            }
+    567            else
+    568            {
+    569              length = rxBufLen;
+    570            }
+    571          
+    572            /* Verify events */
+    573            if (event == HAL_UART_TX_FULL)
+    574            {
+    575              // Do something when TX if full
+    576              return;
+    577            }
+    578          
+    579            if (event & ( HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT))
+    580            {
+    581              if ( App_TaskID )
+    582              {
+    583                /*
+    584                   If Application is ready to receive and there is something
+    585                   in the Rx buffer then send it up
+    586                */
+    587                if ((SPIMgr_ZAppRxStatus == SPI_MGR_ZAPP_RX_READY ) && (length != 0))
+    588                {
+    589                  /* Disable App flow control until it processes the current data */
+    590                   SPIMgr_AppFlowControl ( SPI_MGR_ZAPP_RX_NOT_READY );
+    591          
+    592                  /* 2 more bytes are added, 1 for CMD type, other for length */
+    593                  msg_ptr = (osal_event_hdr_t *)osal_msg_allocate( length + sizeof(osal_event_hdr_t) );
+    594                  if ( msg_ptr )
+    595                  {
+    596                    msg_ptr->event = SPI_INCOMING_ZAPP_DATA;
+    597                    msg_ptr->status = length;
+    598          
+    599                    /* Read the data of Rx buffer */
+    600                    HalUARTRead( SPI_MGR_DEFAULT_PORT, (uint8 *)(msg_ptr + 1), length );
+    601          
+    602                    /* Send the raw data to application...or where ever */
+    603                    osal_msg_send( App_TaskID, (uint8 *)msg_ptr );
+    604                  }
+    605                }
+    606              }
+    607            }
+    608          }
+    609          
+    610          /***************************************************************************************************
+    611           * @fn      SPIMgr_ZAppBufferLengthRegister
+    612           *
+    613           * @brief
+    614           *
+    615           * @param   maxLen - Max Length that the application wants at a time
+    616           *
+    617           * @return  None
+    618           *
+    619           ***************************************************************************************************/
+    620          void SPIMgr_ZAppBufferLengthRegister ( uint16 maxLen )
+    621          {
+    622            /* If the maxLen is larger than the RX buff, something is not right */
+    623            if (maxLen <= SPI_MGR_DEFAULT_MAX_RX_BUFF)
+    624              SPIMgr_MaxZAppBufLen = maxLen;
+    625            else
+    626              SPIMgr_MaxZAppBufLen = 1; /* default is 1 byte */
+    627          }
+    628          
+    629          /***************************************************************************************************
+    630           * @fn      SPIMgr_AppFlowControl
+    631           *
+    632           * @brief
+    633           *
+    634           * @param   status - ready to send or not
+    635           *
+    636           * @return  None
+    637           *
+    638           ***************************************************************************************************/
+    639          void SPIMgr_AppFlowControl ( bool status )
+    640          {
+    641          
+    642            /* Make sure only update if needed */
+    643            if (status != SPIMgr_ZAppRxStatus )
+    644            {
+    645              SPIMgr_ZAppRxStatus = status;
+    646            }
+    647          
+    648            /* App is ready to read again, ProcessZAppData have to be triggered too */
+    649            if (status == SPI_MGR_ZAPP_RX_READY)
+    650            {
+    651              SPIMgr_ProcessZAppData ( SPI_MGR_DEFAULT_PORT, HAL_UART_RX_TIMEOUT );
+    652            }
+    653          
+    654          }
+    655          
+    656          #endif //ZAPP
+    657          
+    658          /***************************************************************************************************
+    659          ***************************************************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function                      ISTACK PSTACK XSTACK
+     --------                      ------ ------ ------
+     SPIMgr_CalcFCS                    0      0     20
+     SPIMgr_Init                       3      0     58
+       -> HalUARTOpen                  4      0    116
+       -> HalUARTOpen                  4      0    116
+     SPIMgr_ProcessZToolData           1      0     11
+       -> Hal_UART_RxBufLen            0      0     22
+       -> HalUARTRead                  0      0     22
+       -> osal_msg_allocate            0      0     22
+       -> SPIMgr_CalcFCS               0      0     22
+       -> osal_msg_send                0      0     22
+       -> osal_msg_send                0      0     22
+       -> osal_msg_deallocate          0      0     22
+     SPIMgr_RegisterTaskID             2      0      0
+     WATER_SPIMgr_CalcFCS              1      0     23
+     WATER_SPIMgr_ProcessZToolData     1      0     11
+       -> Hal_UART_RxBufLen            0      0     22
+       -> HalUARTRead                  0      0     22
+       -> osal_msg_allocate            0      0     22
+       -> WATER_SPIMgr_CalcFCS         0      0     22
+       -> osal_msg_send                0      0     22
+       -> osal_msg_send                0      0     22
+       -> osal_msg_deallocate          0      0     22
+
+
+   Segment part sizes:
+
+     Function/Label                 Bytes
+     --------------                 -----
+     App_TaskID                        1
+     state                             1
+     CMD_Token                         2
+     LEN_Token                         1
+     FSC_Token                         1
+     SPI_Msg                           2
+     tempDataLen                       1
+     WATER_SPI_Msg                     2
+     state1                            1
+     LEN_Water                         1
+     FCS_Water                         2
+     SPIMgr_Init                     201
+     ?Subroutine25                     7
+     ?Subroutine4                      7
+     SPIMgr_RegisterTaskID            11
+     WATER_SPIMgr_CalcFCS            135
+     ?Subroutine26                    10
+     ?Subroutine1                      9
+     WATER_SPIMgr_ProcessZToolData   379
+     ?Subroutine0                      8
+     ?Subroutine17                    10
+     ?Subroutine16                     7
+     ?Subroutine15                     7
+     ?Subroutine14                     7
+     ?Subroutine13                    10
+     ?Subroutine12                     7
+     ?Subroutine11                     8
+     ?Subroutine10                     9
+     ?Subroutine22                     4
+     ?Subroutine21                     6
+     ?Subroutine19                     4
+     ?Subroutine23                     9
+     ?Subroutine24                     9
+     ?Subroutine8                      5
+     ?Subroutine7                      5
+     ?Subroutine6                      5
+     ?Subroutine18                     5
+     ?Subroutine5                      9
+     ?Subroutine3                     18
+     ?Subroutine20                    11
+     ?Subroutine2                     12
+     SPIMgr_CalcFCS                   37
+     SPIMgr_ProcessZToolData         375
+     ?Subroutine9                      7
+     ??SPIMgr_Init?relay               6
+     ??SPIMgr_RegisterTaskID?relay     6
+     ??WATER_SPIMgr_CalcFCS?relay      6
+     ??WATER_SPIMgr_ProcessZToolData?relay
+                                       6
+     ??SPIMgr_CalcFCS?relay            6
+     ??SPIMgr_ProcessZToolData?relay
+                                       6
+
+ 
+ 1 353 bytes in segment BANKED_CODE
+    36 bytes in segment BANK_RELAYS
+    15 bytes in segment XDATA_Z
+ 
+ 1 389 bytes of CODE  memory
+    15 bytes of XDATA memory
+
+Errors: none
+Warnings: none

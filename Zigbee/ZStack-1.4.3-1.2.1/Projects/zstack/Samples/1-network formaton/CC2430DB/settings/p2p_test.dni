@@ -1,0 +1,47 @@
+[DisAssemblyWindow]
+NumStates=_ 1
+State 1=_ 1
+[Profiling]
+Enabled=0
+[StackPlugin]
+Enabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnHow=0
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[TraceHelper]
+Enabled=0
+ShowSource=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Bp0=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\ZMain\TI2430DB\ZMain.c}.206.3@1" 0 0 0 0 "" 0 ""
+Bp1=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Samples\network formaton\Source\p2p_test.c}.297.11@1" 0 0 0 0 "" 0 ""
+Bp2=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Components\hal\target\CC2430EB\hal_key.c}.734.3@1" 0 0 0 0 "" 0 ""
+Bp3=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Components\hal\target\CC2430EB\hal_key.c}.642.5@1" 0 0 0 0 "" 0 ""
+Bp4=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\ZMain\TI2430DB\OnBoard.c}.238.3@1" 0 0 0 0 "" 0 ""
+Bp5=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Components\hal\target\CC2430EB\hal_key.c}.482.5@1" 0 0 0 0 "" 0 ""
+Bp6=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Samples\network formaton\Source\p2p_test.c}.425.5@1" 0 0 0 0 "" 0 ""
+Bp7=_ "Code" "{C:\Texas Instruments\ZStack-1.4.3-1.2.1\Projects\zstack\Samples\network formaton\Source\p2p_test.c}.266.11@1" 1 0 0 0 "" 0 ""
+Count=8
+[ChipconEmu]
+Stop timers on halt=1
+Leave target running=1
